@@ -1,0 +1,107 @@
+---
+title: 'Blinking LED Circuit'
+description: 'Create a simple blinking LED circuit'
+icon: 'code'
+---
+
+## Overview
+
+In this tutorial, we'll build a simple blinking LED circuit using a
+555 timer. We'll go step by step through each stage of building the
+circuit, then finish by exporting for manufacturing and publishing
+our circuit for others to inspect on the tscircuit registry.
+
+<Frame caption="Build a Blinking LED Circuit with React!">
+<iframe
+  width="560"
+  height="315"
+  src="https://www.youtube.com/embed/9m-bfswEv2k"
+  title="YouTube video player"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowfullscreen
+></iframe>
+</Frame>
+
+## Initializing your Project
+
+Create a new directory called `blinking-led-circuit` and run `tsci init`, this
+will bootstrap the project structure.
+
+Now run `tsci dev` to get a preview window.
+
+Rename `lib/MyCircuit.tsx` to `lib/BlinkingLedCircuit.tsx`.
+
+## Add Battery and 555Timer from Registry
+
+Run `tsci add @tscircuit/battery @tscircuit/555timer` to add the battery and 555
+timer to your project.
+
+Let's modify our circuit to 
+
+```tsx lib/BlinkingLedCircuit.tsx
+import { Battery } from "@tsci/tscircuit.battery"
+import { A555Timer } from "@tsci/tscircuit.a555timer"
+
+export const BlinkingLedCircuit = () => (
+  <group>
+    <Battery center={[-5, 0]} name="BAT" voltage="9V" />
+    <A555Timer name="B1" />
+  </group>
+)
+```
+
+## Add Passive Components
+
+```tsx lib/BlinkingLedCircuit.tsx
+export const BlinkingLedCircuit = () => (
+  <Battery center={[-5, 0]} name="BAT" voltage="9V" />
+  <A555Timer name="B1" />
+  <resistor name="R1" resistance="1K" x={-2.5} y={-1} rotation="90deg" />
+  <resistor name="R2" resistance="470K" x={-2.5} y={1} rotation="90deg" />
+  <resistor name="R3" resistance="1K" x={2} y={1} rotation="90deg" />
+  <diode name="D1" x={2} y={3} rotation="90deg" />
+  <capacitor name="C1" capacitance="1uF" x={-2.5} y={3} rotation="90deg" />
+)
+```
+
+## Add Traces
+
+```tsx lib/BlinkingLedCircuit.tsx
+export const BlinkingLedCircuit = () => (
+  <group>
+    <Battery center={[-5, 0]} name="BAT" voltage="9V" />
+    <A555Timer name="B1" />
+    <resistor name="R1" resistance="1K" x={-2.5} y={-1} rotation="90deg" />
+    <resistor name="R2" resistance="470K" x={-2.5} y={1} rotation="90deg" />
+    <resistor name="R3" resistance="1K" x={2} y={1} rotation="90deg" />
+    <diode name="D1" x={2} y={3} rotation="90deg" />
+    <capacitor name="C1" capacitance="1uF" x={-2.5} y={3} rotation="90deg" />
+    <trace from=".BAT > .plus" to=".R1 > .left" />
+    <trace from=".R1 > .right" to=".R2 > .left" />
+    <trace from=".R2 > .right" to=".C1 > .left" />
+    <trace from=".C1 > .right" to=".BAT > .minus" />
+    <trace from=".C1 > .right" to=".D1 > .right" />
+    <trace from=".B1 > .DISCH" to=".R1 > .right" />
+    <trace from=".B1 > .THRES" to=".R2 > .right" />
+    <trace from=".B1 > .TRIG" to=".R2 > .right" />
+    <trace from=".B1 > .OUT" to=".R3 > .left" />
+  </group>
+)
+```
+
+## Route PCB
+
+TODO
+
+## Generate Gerber Files
+
+TODO
+
+## Publish to Registry
+
+TODO
+
+## Bonus: Ordering the PCB
+
+TODO

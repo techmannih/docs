@@ -1,0 +1,36 @@
+---
+title: '<bug />'
+---
+
+The bug component is a general-purpose way to create "box-like" schematic
+components. It is the most common component after passives.
+
+
+![](/images/a555timer_schematic.png)
+![](/images/a555timer_pcb.png)
+
+## Example Usage
+
+```tsx a555Timer.tsx
+export const A555Timer = ({ name, footprint, ...props }) => (
+  <bug
+    name={name}
+    footprint={footprint ?? <DualInlinePackage pad_count={8} />}
+    port_arrangement={{
+      left_size: 4,
+      right_size: 4,
+    }}
+    port_labels={{
+      "1": "GND",
+      "2": "TRIG",
+      "3": "OUT",
+      "4": "RESET",
+      "5": "CTRL",
+      "6": "THRES",
+      "7": "DISCH",
+      "8": "VCC",
+    }}
+    {...props}
+  />
+)
+```

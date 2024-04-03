@@ -1,15 +1,22 @@
 ---
-title: 'Quickstart'
-description: 'Start building awesome documentation in under 5 minutes'
+title: "Quickstart"
+description: "Create your first React Circuit in less than 5 minutes"
 ---
 
-## Setup your development
+## Install tscircuit
 
-Learn how to update your docs locally and and deploy them to the public.
+Install tscircuit using [npm](https://nodejs.org/en/learn/getting-started/an-introduction-to-the-npm-package-manager)
 
-### Edit and preview
+```bash
+npm install -g tscircuit
+```
 
-<AccordionGroup>
+You will now have the `tsci` command available. Try running `tsci --help` to see
+some of what's available!
+
+## Initializing a Circuit
+
+{/* <AccordionGroup>
   <Accordion icon="github" title="Clone your docs locally">
     During the onboarding process, we created a repository on your Github with
     your docs content. You can find this repository on our
@@ -26,11 +33,69 @@ Learn how to update your docs locally and and deploy them to the public.
     2. Run the following command at the root of your documentation (where
     `mint.json` is): ``` mintlify dev ```
   </Accordion>
-</AccordionGroup>
+</AccordionGroup> */}
 
-### Deploy your changes
+1. Create a new directory for your circuit then navigate to it in your terminal
+2. Now run `tsci init`, this will bootstrap the directory into a usable project
 
-<AccordionGroup>
+Your bootstrapped project will look like this:
+
+```
+├── README.md
+├── examples
+│   └── MyExample.tsx
+├── index.ts
+├── lib
+│   └── MyCircuit.tsx
+├── node_modules
+├── package.json
+└── tsconfig.json
+```
+
+The most important files are `MyCircuit.tsx` and `MyExample.tsx`.
+
+In tscircuit, every file in the examples directory is accessible from your preview window and
+will be shown on the registry. You can add variations of your circuit to
+`MyExample.tsx` add other files in the `examples` directory and they will be
+shown in the preview window.
+
+In the `lib` directory, the `MyCircuit.tsx` file defines a boilerplate circuit.
+You can rename and modify this file to test out different circuits.
+
+<CodeGroup>
+
+```tsx MyCircuit.tsx
+export const MyCircuit = () => (
+  <resistor
+    resistance="10kohm"
+    name="R1"
+    footprint="0805"
+  />
+)
+```
+
+```tsx MyExample.tsx
+import { MyCircuit } from "lib/MyCircuit"
+
+export const MyExample = () => (
+  <MyCircuit />
+)
+```
+
+</CodeGroup>
+
+
+## Developing with Realtime Preview
+
+To start the development server, run `tsci dev` in your terminal. This will open
+a new browser window at [`localhost:3020`](http://localhost:3020) with a Schematic and PCB preview of a circuit in your
+`examples` directory.
+
+
+![Initial Preview Window](/images/preview-window-initial.png)
+
+
+{/* <AccordionGroup>
 
 <Accordion icon="message-bot" title="Install our Github app">
   Our Github app automatically deploys your changes to your docs site, so you
@@ -47,40 +112,30 @@ Learn how to update your docs locally and and deploy them to the public.
   update your docs through our [dashboard](https://dashboard.mintlify.com).
 </Accordion>
 
-</AccordionGroup>
+</AccordionGroup> */}
 
-## Update your docs
+## Editing in VS Code
 
-Add content directly in your files with MDX syntax and React components. You can use any of our components, or even build your own.
+[VS Code](https://code.visualstudio.com/)  has Typescript and React support out
+of the box, and the `tsconfig.json` file is set up to load types from `tscircuit`,
+so there's nothing to configure!
+
+## Build something!
+
+Now that you know the basics, you can get started building circuits!
 
 <CardGroup>
 
-<Card title="Style Your Docs" icon="paintbrush" href="/settings/global">
-  Add flair to your docs with personalized branding.
+<Card title="Tutorial: Blinking LED Circuit" icon="square-code" href="/tutorials/blinking-led-circuit">
+  Learn to install packages, build and schematic and auto-route a PCB, and publish circuits.
 </Card>
 
 <Card
-  title="Add API Endpoints"
-  icon="square-code"
-  href="/api-playground/configuration"
+  title="Playground"
+  icon="code"
+  href="https://tscircuit.com/playground"
 >
-  Implement your OpenAPI spec and enable API user interaction.
-</Card>
-
-<Card
-  title="Integrate Analytics"
-  icon="chart-mixed"
-  href="/analytics/supported-integrations"
->
-  Draw insights from user interactions with your documentation.
-</Card>
-
-<Card
-  title="Host on a Custom Domain"
-  icon="browser"
-  href="/settings/custom-domain/subdomain"
->
-  Keep your docs on your own website's subdomain.
+  Use tscircuit in your browser
 </Card>
 
 </CardGroup>

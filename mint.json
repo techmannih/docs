@@ -1,11 +1,11 @@
 {
   "$schema": "https://mintlify.com/schema.json",
-  "name": "Starter Kit",
+  "name": "tscircuit docs",
   "logo": {
-    "dark": "/logo/dark.svg",
-    "light": "/logo/light.svg"
+    "dark": "/logo/logo.svg",
+    "light": "/logo/logo.svg"
   },
-  "favicon": "/favicon.svg",
+  "favicon": "/logo/ts.svg",
   "colors": {
     "primary": "#0D9373",
     "light": "#07C983",
@@ -18,12 +18,12 @@
   "topbarLinks": [
     {
       "name": "Support",
-      "url": "mailto:hi@mintlify.com"
+      "url": "mailto:contact@tscircuit.com"
     }
   ],
   "topbarCtaButton": {
-    "name": "Dashboard",
-    "url": "https://dashboard.mintlify.com"
+    "name": "Find Packages",
+    "url": "https://tscircuit.com/trending"
   },
   "tabs": [
     {
@@ -33,59 +33,78 @@
   ],
   "anchors": [
     {
-      "name": "Documentation",
-      "icon": "book-open-cover",
-      "url": "https://mintlify.com/docs"
+      "name": "Github",
+      "icon": "github",
+      "url": "https://github.com/tscircuit/tscircuit"
+    },
+    {
+      "name": "Twitter",
+      "icon": "twitter",
+      "url": "https://twitter.com/tscircuit"
     },
     {
       "name": "Community",
       "icon": "slack",
-      "url": "https://mintlify.com/community"
-    },
-    {
-      "name": "Blog",
-      "icon": "newspaper",
-      "url": "https://mintlify.com/blog"
+      "url": "https://join.slack.com/t/tscircuit/shared_invite/zt-260m7jjlw-eVLxjoIKsYS_bJK6R8jZHA"
     }
   ],
   "navigation": [
     {
       "group": "Get Started",
       "pages": [
-        "introduction",
         "quickstart",
-        "development"
+        "registry"
       ]
     },
     {
-      "group": "Essentials",
+      "group": "Tutorials",
       "pages": [
-        "essentials/markdown",
-        "essentials/code",
-        "essentials/images",
-        "essentials/settings",
-        "essentials/navigation",
-        "essentials/reusable-snippets"
+        "tutorials/blinking-led-circuit"
       ]
     },
     {
-      "group": "API Documentation",
+      "group": "Core Components",
       "pages": [
-        "api-reference/introduction"
+        "api-reference/components/bug",
+        "api-reference/components/resistor",
+        "api-reference/components/capacitor",
+        "api-reference/components/trace",
+        "api-reference/components/component",
+        "api-reference/components/diode",
+        "api-reference/components/led",
+        "api-reference/components/netalias",
+        "api-reference/components/powersource",
+        "api-reference/components/ground",
+        "api-reference/components/group"
       ]
     },
     {
-      "group": "Endpoint Examples",
+      "group": "Footprint Components",
       "pages": [
-        "api-reference/endpoint/get",
-        "api-reference/endpoint/create",
-        "api-reference/endpoint/delete"
+        "api-reference/footprint-components/hole",
+        "api-reference/footprint-components/platedhole",
+        "api-reference/footprint-components/smtpad"
+      ]
+    },
+    {
+      "group": "Schematic Symbol Components",
+      "pages": [
+        "api-reference/schematic-symbol-components/schematicbox",
+        "api-reference/schematic-symbol-components/schematicline",
+        "api-reference/schematic-symbol-components/schematicpath"
+      ]
+    },
+    {
+      "group": "Layout Engines",
+      "pages": [
+        "api-reference/layout-engines/constrainedlayout",
+        "api-reference/layout-engines/constraint"
       ]
     }
   ],
   "footerSocials": {
-    "twitter": "https://twitter.com/mintlify",
-    "github": "https://github.com/mintlify",
+    "twitter": "https://twitter.com/tscircuit",
+    "github": "https://github.com/tscircuit/tscircuit",
     "linkedin": "https://www.linkedin.com/company/mintsearch"
   }
 }
