@@ -133,9 +133,13 @@ Draws a box on the schematic
 {
   "type": "schematic_path",
   "schematic_component_id": "schematic_component_1",
-  "fill_color": "red",
+  "fill_color": "blue",
   "is_filled": true,
   "points": [
+    {
+      "x": "3mm",
+      "y": "1mm"
+    },
     {
       "x": "3mm",
       "y": "1mm"
@@ -164,6 +168,33 @@ Draws a box on the schematic
 | is_filled              | boolean | No       |             |
 | points                 | array   | Yes      |             |
 
+### `schematic_port`
+
+Defines a port on a schematic component
+
+```json
+{
+  "type": "schematic_port",
+  "schematic_port_id": "schematic_port_1",
+  "source_port_id": "source_port_1",
+  "schematic_component_id": "schematic_component_1",
+  "center": {
+    "x": "3mm",
+    "y": "1mm"
+  },
+  "facing_direction": "up"
+}
+```
+
+| Property               | Type   | Required | Description |
+| ---------------------- | ------ | -------- | ----------- |
+| type                   | string | Yes      |             |
+| schematic_port_id      | string | Yes      |             |
+| source_port_id         | string | Yes      |             |
+| schematic_component_id | string | No       |             |
+| center                 | object | Yes      |             |
+| facing_direction       | string | No       |             |
+
 ### `schematic_text`
 
 ```json
@@ -171,11 +202,13 @@ Draws a box on the schematic
   "type": "schematic_text",
   "schematic_component_id": "schematic_component_1",
   "schematic_text_id": "schematic_text_1",
-  "text": "dolor anim",
+  "text": "esse fugiat elit",
   "position": {
     "x": "3mm",
     "y": "1mm"
-  }
+  },
+  "rotation": "90deg",
+  "anchor": "bottom"
 }
 ```
 
@@ -218,6 +251,38 @@ Draws a box on the schematic
         "x": "3mm",
         "y": "1mm"
       },
+      "from_schematic_port_id": "from_schematic_port_1"
+    },
+    {
+      "from": {
+        "x": "3mm",
+        "y": "1mm"
+      },
+      "to": {
+        "x": "3mm",
+        "y": "1mm"
+      },
+      "from_schematic_port_id": "from_schematic_port_1"
+    },
+    {
+      "from": {
+        "x": "3mm",
+        "y": "1mm"
+      },
+      "to": {
+        "x": "3mm",
+        "y": "1mm"
+      }
+    },
+    {
+      "from": {
+        "x": "3mm",
+        "y": "1mm"
+      },
+      "to": {
+        "x": "3mm",
+        "y": "1mm"
+      },
       "from_schematic_port_id": "from_schematic_port_1",
       "to_schematic_port_id": "to_schematic_port_1"
     }
@@ -233,6 +298,226 @@ Draws a box on the schematic
 | edges              | array  | Yes      |             |
 
 ## Pcb
+
+### `pcb_component`
+
+Defines a component on the PCB
+
+```json
+{
+  "type": "pcb_component",
+  "pcb_component_id": "pcb_component_1",
+  "source_component_id": "source_component_1"
+}
+```
+
+| Property            | Type   | Required | Description |
+| ------------------- | ------ | -------- | ----------- |
+| type                | string | Yes      |             |
+| pcb_component_id    | string | Yes      |             |
+| source_component_id | string | Yes      |             |
+
+### `pcb_hole`
+
+Defines a hole on the PCB
+
+```json
+{
+  "type": "pcb_hole",
+  "hole_diameter": "0.08in",
+  "x": "3mm",
+  "y": "1mm"
+}
+```
+
+| Property      | Type           | Required | Description |
+| ------------- | -------------- | -------- | ----------- |
+| type          | string         | Yes      |             |
+| hole_diameter | number         | Yes      |             |
+| x             | string, number | Yes      |             |
+| y             | string, number | Yes      |             |
+
+### `pcb_plated_hole`
+
+Defines a plated hole on the PCB
+
+```json
+{
+  "type": "pcb_plated_hole",
+  "outer_diameter": "1.2mm",
+  "hole_diameter": "0.08in",
+  "x": "3mm",
+  "y": "1mm",
+  "port_hints": ["1", "left"],
+  "pcb_component_id": "pcb_component_1",
+  "pcb_port_id": "pcb_port_1"
+}
+```
+
+| Property         | Type           | Required | Description |
+| ---------------- | -------------- | -------- | ----------- |
+| type             | string         | Yes      |             |
+| outer_diameter   | number         | Yes      |             |
+| hole_diameter    | number         | Yes      |             |
+| x                | string, number | Yes      |             |
+| y                | string, number | Yes      |             |
+| port_hints       | array          | No       |             |
+| pcb_component_id | string         | No       |             |
+| pcb_port_id      | string         | No       |             |
+
+### `pcb_port`
+
+Defines a port on the PCB
+
+```json
+{
+  "type": "pcb_port",
+  "pcb_port_id": "pcb_port_1",
+  "source_port_id": "source_port_1",
+  "x": "3mm",
+  "y": "1mm"
+}
+```
+
+| Property       | Type           | Required | Description |
+| -------------- | -------------- | -------- | ----------- |
+| type           | string         | Yes      |             |
+| pcb_port_id    | string         | Yes      |             |
+| source_port_id | string         | Yes      |             |
+| x              | string, number | Yes      |             |
+| y              | string, number | Yes      |             |
+
+### `pcb_text`
+
+Defines text on the PCB
+
+```json
+{
+  "type": "pcb_text",
+  "text": "nostrud Duis aliqua deserunt elit",
+  "x": "3mm",
+  "y": "1mm",
+  "align": "bottom-left",
+  "width": "5mm",
+  "height": "5mm",
+  "lines": 1
+}
+```
+
+| Property | Type           | Required | Description |
+| -------- | -------------- | -------- | ----------- |
+| type     | string         | Yes      |             |
+| text     | string         | Yes      |             |
+| x        | string, number | Yes      |             |
+| y        | string, number | Yes      |             |
+| align    | string         | Yes      |             |
+| width    | string, number | Yes      |             |
+| height   | string, number | Yes      |             |
+| lines    | number         | Yes      |             |
+
+### `pcb_trace`
+
+```json
+{
+  "type": "pcb_trace",
+  "source_trace_id": "source_trace_1",
+  "pcb_trace_id": "pcb_trace_1",
+  "route": [
+    {
+      "route_type": "via",
+      "x": "3mm",
+      "y": "1mm",
+      "from_layer": "top",
+      "to_layer": "bottom"
+    },
+    {
+      "route_type": "wire",
+      "x": "3mm",
+      "y": "1mm",
+      "width": "5mm",
+      "start_pcb_port_id": "start_pcb_port_1",
+      "end_pcb_port_id": "end_pcb_port_1",
+      "layer": "consequat amet"
+    },
+    {
+      "route_type": "wire",
+      "x": "3mm",
+      "y": "1mm",
+      "width": "5mm",
+      "layer": "proident cupidatat culpa"
+    },
+    {
+      "route_type": "wire",
+      "x": "3mm",
+      "y": "1mm",
+      "width": "5mm",
+      "start_pcb_port_id": "start_pcb_port_1",
+      "layer": "exercitation est nostrud in"
+    }
+  ]
+}
+```
+
+| Property        | Type   | Required | Description |
+| --------------- | ------ | -------- | ----------- |
+| type            | string | Yes      |             |
+| source_trace_id | string | Yes      |             |
+| pcb_trace_id    | string | Yes      |             |
+| route           | array  | Yes      |             |
+
+### `pcb_trace_error`
+
+Defines a trace error on the PCB
+
+```json
+{
+  "pcb_error_id": "pcb_error_1",
+  "type": "pcb_error",
+  "error_type": "pcb_trace_error",
+  "message": "irure",
+  "pcb_trace_id": "pcb_trace_1",
+  "source_trace_id": "source_trace_1",
+  "pcb_component_ids": ["pcb_component_1"],
+  "pcb_port_ids": ["pcb_port_1", "pcb_port_2"]
+}
+```
+
+| Property          | Type   | Required | Description |
+| ----------------- | ------ | -------- | ----------- |
+| pcb_error_id      | string | Yes      |             |
+| type              | string | Yes      |             |
+| error_type        | string | Yes      |             |
+| message           | string | Yes      |             |
+| pcb_trace_id      | string | Yes      |             |
+| source_trace_id   | string | Yes      |             |
+| pcb_component_ids | array  | Yes      |             |
+| pcb_port_ids      | array  | Yes      |             |
+
+### `pcb_via`
+
+Defines a via on the PCB
+
+```json
+{
+  "type": "pcb_via",
+  "x": "3mm",
+  "y": "1mm",
+  "outer_diameter": "1.2mm",
+  "hole_diameter": "0.08in",
+  "from_layer": "top",
+  "to_layer": "bottom"
+}
+```
+
+| Property       | Type           | Required | Description |
+| -------------- | -------------- | -------- | ----------- |
+| type           | string         | Yes      |             |
+| x              | string, number | Yes      |             |
+| y              | string, number | Yes      |             |
+| outer_diameter | string, number | Yes      |             |
+| hole_diameter  | string, number | Yes      |             |
+| from_layer     | undefined      | Yes      |             |
+| to_layer       | undefined      | Yes      |             |
 
 ## Misc
 
@@ -251,7 +536,7 @@ Draws a box on the schematic
 ### `distance`
 
 ```json
-"non id eiusmod magna"
+"10mm"
 ```
 
 ### `inductance`
@@ -260,10 +545,40 @@ Draws a box on the schematic
 "1mH"
 ```
 
+### `layer_ref`
+
+```json
+"inner-3"
+```
+
+### `layer_string`
+
+```json
+"inner-3"
+```
+
 ### `length`
 
 ```json
 "1m"
+```
+
+### `pcb_smtpad`
+
+Defines an SMT pad on the PCB
+
+```json
+{
+  "type": "pcb_smtpad",
+  "shape": "circle",
+  "x": "3mm",
+  "y": "1mm",
+  "radius": -24747751.56642565,
+  "layer": "inner-3",
+  "port_hints": ["1", "left"],
+  "pcb_component_id": "pcb_component_1",
+  "pcb_port_id": "pcb_port_1"
+}
 ```
 
 ### `point`

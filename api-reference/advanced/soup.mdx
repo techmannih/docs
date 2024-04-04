@@ -25,6 +25,11 @@ components (from the API reference section) have methods that convert themselves
 Sometimes a component will analyze the soup produce by it's children to produce it's own
 soup. For example, a `<group />` will build soup for it's children, then route traces.
 
+### Units
+
+You can use any standard unit e.g. `0.1in` or `2.54mm`, these are automatically
+translated to the numeric value for the "default unit" after parsing.
+
 import SoupReference from "/snippets/soup-reference.mdx"
 
 <SoupReference />

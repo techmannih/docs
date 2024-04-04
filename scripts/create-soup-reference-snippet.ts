@@ -22,6 +22,9 @@ const default_values: Record<string, any> = {
   length: "1m",
   x: "3mm",
   y: "1mm",
+  outer_diameter: "1.2mm",
+  inner_diameter: "1mm",
+  hole_diameter: "0.08in",
   pcb_x: "-2mm",
   pcb_y: "0mm",
   pcb_rotation: "90deg",
@@ -38,7 +41,27 @@ const default_values: Record<string, any> = {
     left_size: 3,
     right_size: 3,
   },
+  port_hints: ["1", "left"],
+  schematic_route_hints: [
+    {
+      x: "5mm",
+      y: "6mm",
+    },
+  ],
+  pcb_route_hints: [
+    {
+      x: "5mm",
+      y: "6mm",
+      via: false,
+    },
+  ],
   rotation: "90deg",
+  pcb_port_ids: ["pcb_port_1", "pcb_port_2"],
+  pcb_component_ids: ["pcb_component_1"],
+  from_layer: "top",
+  to_layer: "bottom",
+  lines: 1,
+  distance: "10mm",
 }
 
 // Patch to make JSONSchemaFaker work
