@@ -74,7 +74,6 @@
         "api-reference/components/led",
         "api-reference/components/netalias",
         "api-reference/components/powersource",
-        "api-reference/components/ground",
         "api-reference/components/group"
       ]
     },
@@ -99,6 +98,12 @@
       "pages": [
         "api-reference/layout-engines/constrainedlayout",
         "api-reference/layout-engines/constraint"
+      ]
+    },
+    {
+      "group": "Advanced",
+      "pages": [
+        "api-reference/advanced/soup"
       ]
     }
   ],

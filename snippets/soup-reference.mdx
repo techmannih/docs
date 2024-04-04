@@ -1,0 +1,333 @@
+## Source
+
+### `source_simple_capacitor`
+
+```json
+{
+  "type": "source_component",
+  "ftype": "simple_capacitor",
+  "source_component_id": "source_component_1",
+  "name": "C1",
+  "capacitance": "1uF"
+}
+```
+
+| Property            | Type           | Required | Description |
+| ------------------- | -------------- | -------- | ----------- |
+| type                | string         | Yes      |             |
+| ftype               | string         | Yes      |             |
+| source_component_id | string         | Yes      |             |
+| name                | string         | Yes      |             |
+| capacitance         | string, number | Yes      |             |
+
+### `source_simple_resistor`
+
+```json
+{
+  "type": "source_component",
+  "ftype": "simple_resistor",
+  "source_component_id": "source_component_1",
+  "name": "R1",
+  "resistance": "1k"
+}
+```
+
+| Property            | Type           | Required | Description |
+| ------------------- | -------------- | -------- | ----------- |
+| type                | string         | Yes      |             |
+| ftype               | string         | Yes      |             |
+| source_component_id | string         | Yes      |             |
+| name                | string         | Yes      |             |
+| resistance          | string, number | Yes      |             |
+
+## Schematic
+
+### `schematic_box`
+
+Draws a box on the schematic
+
+```json
+{
+  "type": "schematic_box",
+  "schematic_component_id": "schematic_component_1",
+  "width": "5mm",
+  "height": "5mm",
+  "x": "3mm",
+  "y": "1mm"
+}
+```
+
+| Property               | Type           | Required | Description |
+| ---------------------- | -------------- | -------- | ----------- |
+| type                   | string         | Yes      |             |
+| schematic_component_id | string         | Yes      |             |
+| width                  | string, number | Yes      |             |
+| height                 | string, number | Yes      |             |
+| x                      | string, number | Yes      |             |
+| y                      | string, number | Yes      |             |
+
+### `schematic_component`
+
+```json
+{
+  "type": "schematic_component",
+  "rotation": "90deg",
+  "size": {
+    "width": "5mm",
+    "height": "5mm"
+  },
+  "center": {
+    "x": "3mm",
+    "y": "1mm"
+  },
+  "source_component_id": "source_component_1",
+  "schematic_component_id": "schematic_component_1",
+  "port_arrangement": {
+    "left_size": 3,
+    "right_size": 3
+  },
+  "port_labels": {
+    "1": "VCC",
+    "2": "GND",
+    "3": "OUT"
+  }
+}
+```
+
+| Property               | Type           | Required | Description |
+| ---------------------- | -------------- | -------- | ----------- |
+| type                   | string         | Yes      |             |
+| rotation               | string, number | No       |             |
+| size                   | object         | Yes      |             |
+| center                 | object         | Yes      |             |
+| source_component_id    | string         | Yes      |             |
+| schematic_component_id | string         | Yes      |             |
+| port_arrangement       | undefined      | No       |             |
+| port_labels            | object         | No       |             |
+
+### `schematic_line`
+
+```json
+{
+  "type": "schematic_line",
+  "schematic_component_id": "schematic_component_1",
+  "x1": "1mm",
+  "x2": "2mm",
+  "y1": "1mm",
+  "y2": "2mm"
+}
+```
+
+| Property               | Type           | Required | Description |
+| ---------------------- | -------------- | -------- | ----------- |
+| type                   | string         | Yes      |             |
+| schematic_component_id | string         | Yes      |             |
+| x1                     | string, number | Yes      |             |
+| x2                     | string, number | Yes      |             |
+| y1                     | string, number | Yes      |             |
+| y2                     | string, number | Yes      |             |
+
+### `schematic_path`
+
+```json
+{
+  "type": "schematic_path",
+  "schematic_component_id": "schematic_component_1",
+  "fill_color": "red",
+  "is_filled": true,
+  "points": [
+    {
+      "x": "3mm",
+      "y": "1mm"
+    },
+    {
+      "x": "3mm",
+      "y": "1mm"
+    },
+    {
+      "x": "3mm",
+      "y": "1mm"
+    },
+    {
+      "x": "3mm",
+      "y": "1mm"
+    }
+  ]
+}
+```
+
+| Property               | Type    | Required | Description |
+| ---------------------- | ------- | -------- | ----------- |
+| type                   | string  | Yes      |             |
+| schematic_component_id | string  | Yes      |             |
+| fill_color             | string  | No       |             |
+| is_filled              | boolean | No       |             |
+| points                 | array   | Yes      |             |
+
+### `schematic_text`
+
+```json
+{
+  "type": "schematic_text",
+  "schematic_component_id": "schematic_component_1",
+  "schematic_text_id": "schematic_text_1",
+  "text": "dolor anim",
+  "position": {
+    "x": "3mm",
+    "y": "1mm"
+  }
+}
+```
+
+| Property               | Type   | Required | Description |
+| ---------------------- | ------ | -------- | ----------- |
+| type                   | string | Yes      |             |
+| schematic_component_id | string | Yes      |             |
+| schematic_text_id      | string | Yes      |             |
+| text                   | string | Yes      |             |
+| position               | object | Yes      |             |
+| rotation               | number | No       |             |
+| anchor                 | string | No       |             |
+
+### `schematic_trace`
+
+```json
+{
+  "type": "schematic_trace",
+  "schematic_trace_id": "schematic_trace_1",
+  "source_trace_id": "source_trace_1",
+  "edges": [
+    {
+      "from": {
+        "x": "3mm",
+        "y": "1mm"
+      },
+      "to": {
+        "x": "3mm",
+        "y": "1mm"
+      },
+      "from_schematic_port_id": "from_schematic_port_1",
+      "to_schematic_port_id": "to_schematic_port_1"
+    },
+    {
+      "from": {
+        "x": "3mm",
+        "y": "1mm"
+      },
+      "to": {
+        "x": "3mm",
+        "y": "1mm"
+      },
+      "from_schematic_port_id": "from_schematic_port_1",
+      "to_schematic_port_id": "to_schematic_port_1"
+    }
+  ]
+}
+```
+
+| Property           | Type   | Required | Description |
+| ------------------ | ------ | -------- | ----------- |
+| type               | string | Yes      |             |
+| schematic_trace_id | string | Yes      |             |
+| source_trace_id    | string | Yes      |             |
+| edges              | array  | Yes      |             |
+
+## Pcb
+
+## Misc
+
+### `capacitance`
+
+```json
+"1uF"
+```
+
+### `current`
+
+```json
+"1A"
+```
+
+### `distance`
+
+```json
+"non id eiusmod magna"
+```
+
+### `inductance`
+
+```json
+"1mH"
+```
+
+### `length`
+
+```json
+"1m"
+```
+
+### `point`
+
+```json
+{
+  "x": "3mm",
+  "y": "1mm"
+}
+```
+
+| Property | Type           | Required | Description |
+| -------- | -------------- | -------- | ----------- |
+| x        | string, number | Yes      |             |
+| y        | string, number | Yes      |             |
+
+### `position`
+
+```json
+{
+  "x": "3mm",
+  "y": "1mm"
+}
+```
+
+| Property | Type           | Required | Description |
+| -------- | -------------- | -------- | ----------- |
+| x        | string, number | Yes      |             |
+| y        | string, number | Yes      |             |
+
+### `resistance`
+
+```json
+"1k"
+```
+
+### `rotation`
+
+```json
+"90deg"
+```
+
+### `size`
+
+```json
+{
+  "width": "5mm",
+  "height": "5mm"
+}
+```
+
+| Property | Type   | Required | Description |
+| -------- | ------ | -------- | ----------- |
+| width    | number | Yes      |             |
+| height   | number | Yes      |             |
+
+### `time`
+
+```json
+"60s"
+```
+
+### `voltage`
+
+```json
+"5V"
+```
