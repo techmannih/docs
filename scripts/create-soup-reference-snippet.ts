@@ -60,6 +60,10 @@ const default_values: Record<string, any> = {
   pcb_component_ids: ["pcb_component_1"],
   from_layer: "top",
   to_layer: "bottom",
+  layer: "top",
+  radius: "5mm",
+  layers: ["top", "bottom"],
+  layer_ref: "top",
   lines: 1,
   distance: "10mm",
 }
@@ -153,6 +157,10 @@ for (const element_name of Object.keys(B.Soup)) {
     try {
       markdownTable = jsonSchemaToMarkdownTable(schema)
     } catch (e) {}
+  }
+
+  if (element_name === "any_soup_element") {
+    example_json = ""
   }
 
   let markdown = `

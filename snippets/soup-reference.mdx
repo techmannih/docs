@@ -182,7 +182,7 @@ Defines a port on a schematic component
     "x": "3mm",
     "y": "1mm"
   },
-  "facing_direction": "up"
+  "facing_direction": "right"
 }
 ```
 
@@ -202,13 +202,13 @@ Defines a port on a schematic component
   "type": "schematic_text",
   "schematic_component_id": "schematic_component_1",
   "schematic_text_id": "schematic_text_1",
-  "text": "esse fugiat elit",
+  "text": "ea nisi sunt",
   "position": {
     "x": "3mm",
     "y": "1mm"
   },
   "rotation": "90deg",
-  "anchor": "bottom"
+  "anchor": "center"
 }
 ```
 
@@ -241,38 +241,6 @@ Defines a port on a schematic component
       },
       "from_schematic_port_id": "from_schematic_port_1",
       "to_schematic_port_id": "to_schematic_port_1"
-    },
-    {
-      "from": {
-        "x": "3mm",
-        "y": "1mm"
-      },
-      "to": {
-        "x": "3mm",
-        "y": "1mm"
-      },
-      "from_schematic_port_id": "from_schematic_port_1"
-    },
-    {
-      "from": {
-        "x": "3mm",
-        "y": "1mm"
-      },
-      "to": {
-        "x": "3mm",
-        "y": "1mm"
-      },
-      "from_schematic_port_id": "from_schematic_port_1"
-    },
-    {
-      "from": {
-        "x": "3mm",
-        "y": "1mm"
-      },
-      "to": {
-        "x": "3mm",
-        "y": "1mm"
-      }
     },
     {
       "from": {
@@ -348,7 +316,7 @@ Defines a plated hole on the PCB
   "hole_diameter": "0.08in",
   "x": "3mm",
   "y": "1mm",
-  "port_hints": ["1", "left"],
+  "layers": ["top", "bottom"],
   "pcb_component_id": "pcb_component_1",
   "pcb_port_id": "pcb_port_1"
 }
@@ -361,6 +329,7 @@ Defines a plated hole on the PCB
 | hole_diameter    | number         | Yes      |             |
 | x                | string, number | Yes      |             |
 | y                | string, number | Yes      |             |
+| layers           | array          | Yes      |             |
 | port_hints       | array          | No       |             |
 | pcb_component_id | string         | No       |             |
 | pcb_port_id      | string         | No       |             |
@@ -375,7 +344,8 @@ Defines a port on the PCB
   "pcb_port_id": "pcb_port_1",
   "source_port_id": "source_port_1",
   "x": "3mm",
-  "y": "1mm"
+  "y": "1mm",
+  "layers": ["top", "bottom"]
 }
 ```
 
@@ -386,6 +356,7 @@ Defines a port on the PCB
 | source_port_id | string         | Yes      |             |
 | x              | string, number | Yes      |             |
 | y              | string, number | Yes      |             |
+| layers         | array          | Yes      |             |
 
 ### `pcb_text`
 
@@ -394,7 +365,7 @@ Defines text on the PCB
 ```json
 {
   "type": "pcb_text",
-  "text": "nostrud Duis aliqua deserunt elit",
+  "text": "proident eu",
   "x": "3mm",
   "y": "1mm",
   "align": "bottom-left",
@@ -424,6 +395,15 @@ Defines text on the PCB
   "pcb_trace_id": "pcb_trace_1",
   "route": [
     {
+      "route_type": "wire",
+      "x": "3mm",
+      "y": "1mm",
+      "width": "5mm",
+      "start_pcb_port_id": "start_pcb_port_1",
+      "end_pcb_port_id": "end_pcb_port_1",
+      "layer": "top"
+    },
+    {
       "route_type": "via",
       "x": "3mm",
       "y": "1mm",
@@ -437,14 +417,14 @@ Defines text on the PCB
       "width": "5mm",
       "start_pcb_port_id": "start_pcb_port_1",
       "end_pcb_port_id": "end_pcb_port_1",
-      "layer": "consequat amet"
+      "layer": "top"
     },
     {
       "route_type": "wire",
       "x": "3mm",
       "y": "1mm",
       "width": "5mm",
-      "layer": "proident cupidatat culpa"
+      "layer": "top"
     },
     {
       "route_type": "wire",
@@ -452,7 +432,8 @@ Defines text on the PCB
       "y": "1mm",
       "width": "5mm",
       "start_pcb_port_id": "start_pcb_port_1",
-      "layer": "exercitation est nostrud in"
+      "end_pcb_port_id": "end_pcb_port_1",
+      "layer": "top"
     }
   ]
 }
@@ -474,7 +455,7 @@ Defines a trace error on the PCB
   "pcb_error_id": "pcb_error_1",
   "type": "pcb_error",
   "error_type": "pcb_trace_error",
-  "message": "irure",
+  "message": "dolor",
   "pcb_trace_id": "pcb_trace_1",
   "source_trace_id": "source_trace_1",
   "pcb_component_ids": ["pcb_component_1"],
@@ -505,7 +486,8 @@ Defines a via on the PCB
   "outer_diameter": "1.2mm",
   "hole_diameter": "0.08in",
   "from_layer": "top",
-  "to_layer": "bottom"
+  "to_layer": "bottom",
+  "layers": ["top", "bottom"]
 }
 ```
 
@@ -514,12 +496,19 @@ Defines a via on the PCB
 | type           | string         | Yes      |             |
 | x              | string, number | Yes      |             |
 | y              | string, number | Yes      |             |
-| outer_diameter | string, number | Yes      |             |
-| hole_diameter  | string, number | Yes      |             |
-| from_layer     | undefined      | Yes      |             |
-| to_layer       | undefined      | Yes      |             |
+| outer_diameter | string, number | No       |             |
+| hole_diameter  | string, number | No       |             |
+| from_layer     | undefined      | No       |             |
+| to_layer       | undefined      | No       |             |
+| layers         | array          | Yes      |             |
 
 ## Misc
+
+### `any_soup_element`
+
+```json
+
+```
 
 ### `capacitance`
 
@@ -548,19 +537,49 @@ Defines a via on the PCB
 ### `layer_ref`
 
 ```json
-"inner-3"
+"top"
 ```
 
 ### `layer_string`
 
 ```json
-"inner-3"
+"inner-6"
 ```
 
 ### `length`
 
 ```json
 "1m"
+```
+
+### `pcb_route_hint`
+
+```json
+{
+  "x": "3mm",
+  "y": "1mm",
+  "via": true,
+  "via_to_layer": "inner-1"
+}
+```
+
+| Property     | Type           | Required | Description |
+| ------------ | -------------- | -------- | ----------- |
+| x            | string, number | Yes      |             |
+| y            | string, number | Yes      |             |
+| via          | boolean        | No       |             |
+| via_to_layer | undefined      | No       |             |
+
+### `pcb_route_hints`
+
+```json
+[
+  {
+    "x": "5mm",
+    "y": "6mm",
+    "via": false
+  }
+]
 ```
 
 ### `pcb_smtpad`
@@ -573,8 +592,8 @@ Defines an SMT pad on the PCB
   "shape": "circle",
   "x": "3mm",
   "y": "1mm",
-  "radius": -24747751.56642565,
-  "layer": "inner-3",
+  "radius": "5mm",
+  "layer": "top",
   "port_hints": ["1", "left"],
   "pcb_component_id": "pcb_component_1",
   "pcb_port_id": "pcb_port_1"
