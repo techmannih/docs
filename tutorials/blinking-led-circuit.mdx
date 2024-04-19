@@ -11,6 +11,9 @@ In this tutorial, we'll build a simple blinking LED circuit using a
 circuit, then finish by exporting for manufacturing and publishing
 our circuit for others to inspect on the tscircuit registry.
 
+> [!NOTE]
+> Want to skip to the source code? [Check out the github repository](https://github.com/tscircuit/blinking-led-circuit)
+
 <Frame caption="Build a Blinking LED Circuit with React!">
 <iframe
   width="560"
@@ -61,6 +64,10 @@ export const BlinkingLedCircuit = () => (
 
 You should now see see our imported components appear in the schematic view!
 
+<Frame caption="Our circuit now has a battery and a 555 timer!">
+![](/images/blinking-led-circuit/2024-04-19-10-48-15.png)
+</Frame>
+
 ## Add Passive Components
 
 ```tsx lib/BlinkingLedCircuit.tsx
@@ -68,15 +75,21 @@ import { Battery } from "@tsci/tscircuit.battery"
 import { A555Timer } from "@tsci/tscircuit.a555timer"
 
 export const BlinkingLedCircuit = () => (
-  <Battery center={[-5, 0]} name="BAT" voltage="9V" />
-  <A555Timer name="B1" />
-  <resistor name="R1" resistance="1K" x={-2.5} y={-1} rotation="90deg" />
-  <resistor name="R2" resistance="470K" x={-2.5} y={1} rotation="90deg" />
-  <resistor name="R3" resistance="1K" x={2} y={1} rotation="90deg" />
-  <diode name="D1" x={2} y={3} rotation="90deg" />
-  <capacitor name="C1" capacitance="1uF" x={-2.5} y={3} rotation="90deg" />
+  <group>
+    <Battery center={[-5, 0]} name="BAT" voltage="9V" />
+    <A555Timer name="B1" />
+    <resistor name="R1" resistance="1K" x={-2.5} y={-1} rotation="90deg" />
+    <resistor name="R2" resistance="470K" x={-2.5} y={1} rotation="90deg" />
+    <resistor name="R3" resistance="1K" x={2} y={1} rotation="90deg" />
+    <diode name="D1" x={2} y={3} rotation="90deg" />
+    <capacitor name="C1" capacitance="1uF" x={-2.5} y={3} rotation="90deg" />
+  </group>
 )
 ```
+
+<Frame caption="Passives added!">
+![](/images/blinking-led-circuit/2024-04-19-10-46-42.png)
+</Frame>
 
 ## Add Traces
 
@@ -102,17 +115,19 @@ export const BlinkingLedCircuit = () => (
     <trace from=".B1 > .THRES" to=".R2 > .right" />
     <trace from=".B1 > .TRIG" to=".R2 > .right" />
     <trace from=".B1 > .OUT" to=".R3 > .left" />
+    <trace from=".D1 > .left" to=".R3 > .right" />
   </group>
 )
 ```
 
-## Oops, coming soon!
+<Frame caption="Our circuit now has traces!">
+![](/images/blinking-led-circuit/2024-04-19-10-44-00.png)
+</Frame>
 
-This tutorial isn't finished yet, but you can [view the full source code here!](https://github.com/tscircuit/blinking-led-circuit)
+## Organize components on PCB and Route!
 
-## Route PCB
 
-TODO
+
 
 ## Generate Gerber Files
 
