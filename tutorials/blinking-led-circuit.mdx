@@ -45,7 +45,7 @@ export const MyExample = () => <BlinkingLedCircuit />
 Run `tsci add @tscircuit/battery @tscircuit/a555timer` to add the battery and 555
 timer to your project.
 
-Let's modify our circuit to 
+Let's modify our circuit to...
 
 ```tsx lib/BlinkingLedCircuit.tsx
 import { Battery } from "@tsci/tscircuit.battery"
@@ -59,9 +59,14 @@ export const BlinkingLedCircuit = () => (
 )
 ```
 
+You should now see see our imported components appear in the schematic view!
+
 ## Add Passive Components
 
 ```tsx lib/BlinkingLedCircuit.tsx
+import { Battery } from "@tsci/tscircuit.battery"
+import { A555Timer } from "@tsci/tscircuit.a555timer"
+
 export const BlinkingLedCircuit = () => (
   <Battery center={[-5, 0]} name="BAT" voltage="9V" />
   <A555Timer name="B1" />
@@ -76,6 +81,9 @@ export const BlinkingLedCircuit = () => (
 ## Add Traces
 
 ```tsx lib/BlinkingLedCircuit.tsx
+import { Battery } from "@tsci/tscircuit.battery"
+import { A555Timer } from "@tsci/tscircuit.a555timer"
+
 export const BlinkingLedCircuit = () => (
   <group>
     <Battery center={[-5, 0]} name="BAT" voltage="9V" />
@@ -97,6 +105,10 @@ export const BlinkingLedCircuit = () => (
   </group>
 )
 ```
+
+## Oops, coming soon!
+
+This tutorial isn't finished yet, but you can [view the full source code here!](https://github.com/tscircuit/blinking-led-circuit)
 
 ## Route PCB
 
