@@ -125,7 +125,61 @@ export const BlinkingLedCircuit = () => (
 ![](/images/blinking-led-circuit/2024-04-19-10-44-00.png)
 </Frame>
 
+
+## Set the passive footprints
+
+The footprint or "landing pattern" is the physical copper pad that a component is soldered to on a PCB. We need to set the footprints for our passive components. For this circuit, we'll use the 0805 package for all of our passive components
+and the LED.
+
+```tsx lib/BlinkingLedCircuit.tsx
+// ...
+  <resistor
+    name="R1"
+    resistance="1K"
+    x={-2.5}
+    y={-1}
+    rotation="90deg"
+    footprint="0805"
+  />
+  <resistor
+    name="R2"
+    resistance="470K"
+    x={-2.5}
+    y={1}
+    rotation="90deg"
+    footprint="0805"
+  />
+  <resistor
+    name="R3"
+    resistance="1K"
+    x={2}
+    y={1}
+    rotation="90deg"
+    footprint="0805"
+  />
+  <diode name="D1" x={2} y={3} rotation="90deg" footprint="0805" />
+  <capacitor
+    name="C1"
+    capacitance="1uF"
+    x={-2.5}
+    y={3}
+    rotation="90deg"
+    footprint="0805"
+  />
+// ...
+```
+
+<Frame caption="When you hover over the 0805 footprint, you can see they're all on top of each other!">
+![](/images/blinking-led-circuit/2024-04-19-11-06-39.png)
+</Frame>
+
 ## Layout the PCB
+
+We can now lay out the pcb by setting the position of each component. In the future,
+it'll be possible to do this with auto-layout similar to web's flexbox or grid, but for
+now we'll set the X and Y manually.
+
+
 
 
 
