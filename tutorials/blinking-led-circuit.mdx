@@ -11,8 +11,9 @@ In this tutorial, we'll build a simple blinking LED circuit using a
 circuit, then finish by exporting for manufacturing and publishing
 our circuit for others to inspect on the tscircuit registry.
 
-> [!NOTE]
-> Want to skip to the source code? [Check out the github repository](https://github.com/tscircuit/blinking-led-circuit)
+<Note>
+  Want to skip to the source code? [Check out the github repository](https://github.com/tscircuit/blinking-led-circuit)
+</Note>
 
 <Frame caption="Build a Blinking LED Circuit with React!">
 <iframe
@@ -57,7 +58,7 @@ import { A555Timer } from "@tsci/tscircuit.a555timer"
 export const BlinkingLedCircuit = () => (
   <group>
     <Battery center={[-5, 0]} name="BAT" voltage="9V" />
-    <A555Timer name="B1" />
+    <A555Timer name="U1" />
   </group>
 )
 ```
@@ -77,7 +78,7 @@ import { A555Timer } from "@tsci/tscircuit.a555timer"
 export const BlinkingLedCircuit = () => (
   <group>
     <Battery center={[-5, 0]} name="BAT" voltage="9V" />
-    <A555Timer name="B1" />
+    <A555Timer name="U1" />
     <resistor name="R1" resistance="1K" x={-2.5} y={-1} rotation="90deg" />
     <resistor name="R2" resistance="470K" x={-2.5} y={1} rotation="90deg" />
     <resistor name="R3" resistance="1K" x={2} y={1} rotation="90deg" />
@@ -100,7 +101,7 @@ import { A555Timer } from "@tsci/tscircuit.a555timer"
 export const BlinkingLedCircuit = () => (
   <group>
     <Battery center={[-5, 0]} name="BAT" voltage="9V" />
-    <A555Timer name="B1" />
+    <A555Timer name="U1" />
     <resistor name="R1" resistance="1K" x={-2.5} y={-1} rotation="90deg" />
     <resistor name="R2" resistance="470K" x={-2.5} y={1} rotation="90deg" />
     <resistor name="R3" resistance="1K" x={2} y={1} rotation="90deg" />
@@ -124,14 +125,15 @@ export const BlinkingLedCircuit = () => (
 ![](/images/blinking-led-circuit/2024-04-19-10-44-00.png)
 </Frame>
 
-## Organize components on PCB and Route!
-
+## Layout the PCB
 
 
 
 ## Generate Gerber Files
 
 TODO
+
+## Add Supplier Part Numbers for Easy Ordering & Assembly
 
 ## Publish to Registry
 
