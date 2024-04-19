@@ -177,22 +177,140 @@ and the LED.
 
 We can now lay out the pcb by setting the position of each component. In the future,
 it'll be possible to do this with auto-layout similar to web's flexbox or grid, but for
-now we'll set the X and Y manually.
+now we'll set the X and Y manually with `pcb_x` and `pcb_y`.
 
 
+```tsx lib/BlinkingLedCircuit.tsx
+// ...
+    <Battery
+      center={[-5, 0]}
+      pcb_x={20}
+      pcb_y={-10}
+      pcb_rotation="90deg"
+      name="BAT"
+      voltage="9V"
+    />
+    <A555Timer pcb_x={20} pcb_y={0} name="U1" />
+    <resistor
+      name="R1"
+      resistance="1K"
+      x={-2.5}
+      y={-1}
+      pcb_x={10}
+      pcb_y={5}
+      rotation="90deg"
+      footprint="0805"
+    />
+    <resistor
+      name="R2"
+      resistance="470K"
+      x={-2.5}
+      y={1}
+      pcb_x={10}
+      pcb_y={-5}
+      rotation="90deg"
+      footprint="0805"
+    />
+// ...
+    ```
 
+
+<Frame caption="Our footprints are now on the board, but some traces are overlapping!">
+![](/images/blinking-led-circuit/2024-04-19-11-30-37.png)
+</Frame>
+
+### Fixing Overlapping Traces
+
+tscircuit currently only auto-routes for single layers and ignores other traces,
+this prevents complex and sometimes "characteristic" traces from being routed. We
+can manually route the traces using `pcb_route_hints` to specify vias or more complex
+routes.
+
+<Note>
+  It's okay to have overlapping traces if they're within the same net, future
+  versions of tscircuit will show an error and refuse to route overlapping
+  traces!
+</Note>
+
+<Tip>
+  You can double click inside the PCB Viewer to see the coordinate of your cursor!
+</Tip>
+
+```tsx lib/BlinkingLedCircuit.tsx
+// ...
+    <trace
+      from=".R2 > .right"
+      to=".C1 > .left"
+      pcb_route_hints={[
+        {
+          x: 12,
+          y: -4,
+          via: true,
+        },
+        {
+          x: 8,
+          y: 8,
+          via: true,
+        },
+      ]}
+    />
+// ...
+```
+
+<Frame caption="Before adding pcb_route_hints">
+  ![](/images/blinking-led-circuit/2024-04-19-11-34-10.png)
+</Frame>
+
+<Frame caption="After adding pcb_route_hints, the trace now goes to the bottom layer!">
+  ![](/images/blinking-led-circuit/2024-04-19-11-37-53.png)
+</Frame>
 
 
 ## Generate Gerber Files
 
-TODO
+Gerbers are the de-facto format for getting a PCB printed. You can go to
+`File > Export > Gerbers` to get a zip file suitable for upload to [jlcpcb](https://jlcpcb.com), [pcbway](https://pcbway.com), [MacroFab](https://macrofab.com), or any other PCB manufacturer.
+
+<Frame caption="Export Gerbers from File > Export > Gerbers">
+<video
+  controls
+  className="w-full aspect-video"
+  src="/images/blinking-led-circuit/export-gerbers-2.mp4"
+></video>
+</Frame>
+
+
 
 ## Add Supplier Part Numbers for Easy Ordering & Assembly
 
+A supplier can often take a Bill of Materials (BOM) and Pick'n'Place file (pnp.csv)
+and completely assemble your circuit. You can export the BOM and PnP files from
+`File > Export`, but before you export you'll need to indicate the part numbers
+that should be used from each supplier. You can do that with the `supplier_part_numbers`
+prop like so:
+
+```tsx lib/BlinkingLedCircuit.tsx
+// ...
+<resistor
+  resistance="220"
+  name="R3"
+  pcb_x={30}
+  pcb_y={5}
+  supplier_part_numbers={{
+    jlcpcb: ["C3000591"],
+  }}
+  footprint="1210"
+  rotation="90deg"
+  center={[3, 2]}
+/>
+// ...
+```
+
 ## Publish to Registry
 
-TODO
+When you're ready to share your circuit with the world, or use your circuit
+as a sub-circuit of a larger project, you can publish your circuit with `tsci publish`
 
 ## Bonus: Ordering the PCB
 
-TODO
+Coming soon!
