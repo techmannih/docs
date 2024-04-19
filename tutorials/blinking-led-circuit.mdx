@@ -32,9 +32,17 @@ Now run `tsci dev` to get a preview window.
 
 Rename `lib/MyCircuit.tsx` to `lib/BlinkingLedCircuit.tsx`.
 
+Make sure the example file correctly imports your circuit:
+
+```tsx examples/MyCircuit.tsx
+import { BlinkingLedCircuit } from "lib/BlinkingLedCircuit"
+
+export const MyExample = () => <BlinkingLedCircuit />
+```
+
 ## Add Battery and 555Timer from Registry
 
-Run `tsci add @tscircuit/battery @tscircuit/555timer` to add the battery and 555
+Run `tsci add @tscircuit/battery @tscircuit/a555timer` to add the battery and 555
 timer to your project.
 
 Let's modify our circuit to 
