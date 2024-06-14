@@ -8,7 +8,7 @@
     "typescript": "^5.4.4"
   },
   "scripts": {
-    "create-soup-reference-snippet": "tsx ./scripts/create-soup-reference-snippet.ts"
+    "generate-soup-reference": "tsx ./scripts/create-soup-reference-snippet.ts"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
