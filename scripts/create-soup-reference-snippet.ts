@@ -1,4 +1,5 @@
-import * as B from "@tscircuit/builder"
+// import * as B from "@tscircuit/builder"
+import * as B from "@tscircuit/soup"
 import { zodToJsonSchema } from "zod-to-json-schema"
 import { pascalCase } from "change-case"
 import * as fs from "fs"
@@ -66,6 +67,12 @@ const default_values: Record<string, any> = {
   layer_ref: "top",
   lines: 1,
   distance: "10mm",
+  hole_shape: "round",
+  hole_width: "1mm",
+  hole_height: "1mm",
+  font_size: "1mm",
+  stroke_width: "0.1mm",
+  text: "Hello, World!",
 }
 
 // Patch to make JSONSchemaFaker work
@@ -85,7 +92,7 @@ const sections: Array<{
 function replaceDefaultValues(
   example_json: any,
   category: string,
-  element_name: string
+  element_name: string,
 ) {
   for (const key of Object.keys(example_json)) {
     if (key.endsWith("_id")) {
@@ -134,8 +141,13 @@ function jsonSchemaToMarkdownTable(schema: any): string {
   return markdownTable
 }
 
-for (const element_name of Object.keys(B.Soup)) {
-  const element = (B.Soup as any)[element_name]
+const skip_zod_keys = ["any_soup_element"]
+for (const element_name of Object.keys(B)) {
+  if (skip_zod_keys.includes(element_name)) {
+    continue
+  }
+  const element = (B as any)[element_name]
+  if (!element._def) continue
   const schema: any = zodToJsonSchema(element)
   const element_type: string | null = schema?.properties?.type?.const
   const category = categories.find((c) => element_type?.startsWith(c)) ?? "misc"
@@ -199,7 +211,7 @@ fs.writeFileSync(
   "./snippets/soup-reference.mdx",
   await prettier.format(full_markdown_lines.join("\n"), {
     parser: "mdx",
-  })
+  }),
 )
 
 // const handled_elements: string[] = []
