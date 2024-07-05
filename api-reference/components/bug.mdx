@@ -16,11 +16,11 @@ export const A555Timer = ({ name, footprint, ...props }) => (
   <bug
     name={name}
     footprint={footprint ?? <DualInlinePackage pad_count={8} />}
-    port_arrangement={{
+    schPortArrangement={{
       left_size: 4,
       right_size: 4,
     }}
-    port_labels={{
+    pinLabels={{
       "1": "GND",
       "2": "TRIG",
       "3": "OUT",
