@@ -59,7 +59,8 @@
     {
       "group": "Tutorials",
       "pages": [
-        "tutorials/blinking-led-circuit"
+        "tutorials/blinking-led-circuit",
+        "tutorials/copying-a-reference-circuit"
       ]
     },
     {
