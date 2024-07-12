@@ -4,10 +4,12 @@
   "type": "module",
   "devDependencies": {
     "@types/bun": "latest",
+    "mintlify": "^4.0.184",
     "tsx": "^4.7.2",
     "typescript": "^5.4.4"
   },
   "scripts": {
+    "start": "mintlify dev",
     "generate-soup-reference": "tsx ./scripts/create-soup-reference-snippet.ts"
   },
   "peerDependencies": {
