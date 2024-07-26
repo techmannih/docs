@@ -16,7 +16,7 @@
     "typescript": "^5.0.0"
   },
   "dependencies": {
-    "@tscircuit/soup": "^0.0.41",
+    "@tscircuit/soup": "^0.0.43",
     "change-case": "^5.4.4",
     "json-schema-faker": "^0.5.6",
     "prettier": "^3.2.5",
