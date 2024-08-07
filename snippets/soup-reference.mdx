@@ -6,11 +6,7 @@
 {
   "type": "source_component",
   "source_component_id": "source_component_1",
-  "name": "C1",
-  "supplier_part_numbers": {
-    "officia_69": ["ut et", "quis enim dolor", "incididunt amet velit"],
-    "doloreec6": ["eiusmod labore amet", "consequat esse"]
-  }
+  "name": "C1"
 }
 ```
 
@@ -28,8 +24,7 @@
 ```json
 {
   "type": "source_group",
-  "source_group_id": "source_group_1",
-  "name": "G1"
+  "source_group_id": "source_group_1"
 }
 ```
 
@@ -46,19 +41,7 @@
   "type": "source_component",
   "ftype": "led",
   "source_component_id": "source_component_1",
-  "name": "L1",
-  "manufacturer_part_number": "Lorem ullamco irure ex",
-  "supplier_part_numbers": {
-    "ad_04d": [
-      "deserunt eiusmod ut in voluptate",
-      "magna aliquip adipisicing",
-      "magna eiusmod ullamco occaecat",
-      "ad incididunt est",
-      "exercitation ipsum dolor"
-    ],
-    "anim89": ["pariatur Duis", "occaecat", "esse aute", "fugiat", "eiusmod"],
-    "labore8b": ["cillum dolor fugiat", "velit"]
-  }
+  "name": "L1"
 }
 ```
 
@@ -79,15 +62,16 @@
   "source_net_id": "source_net_1",
   "name": "N1",
   "member_source_group_ids": [
-    "ea labore ut laborum",
-    "velit nisi laborum",
-    "elit sit do nisi"
+    "ut incididunt deserunt enim",
+    "incididunt aliquip",
+    "consectetur aliquip et",
+    "adipisicing ex commodo Excepteur",
+    "officia"
   ],
   "is_power": false,
-  "is_ground": false,
-  "is_digital_signal": false,
+  "is_ground": true,
   "is_analog_signal": false,
-  "trace_width": -91270825.97980091
+  "trace_width": 48970277.92874277
 }
 ```
 
@@ -108,6 +92,7 @@
 ```json
 {
   "type": "source_port",
+  "port_hints": ["1", "left"],
   "name": "P1",
   "source_port_id": "source_port_1",
   "source_component_id": "source_component_1"
@@ -133,14 +118,13 @@
   "ftype": "simple_bug",
   "source_component_id": "source_component_1",
   "name": "B1",
-  "manufacturer_part_number": "et",
   "supplier_part_numbers": {
-    "voluptate1e7": [
-      "velit do",
-      "quis veniam non dolor nulla",
-      "veniam",
-      "consequat Lorem aute ullamco nulla",
-      "cillum dolor"
+    "cillum_fb0": [
+      "ullamco ipsum enim quis occaecat",
+      "in qui reprehenderit",
+      "dolore sit in do",
+      "Lorem aute eiusmod",
+      "exercitation ullamco dolore sunt consectetur"
     ]
   }
 }
@@ -163,15 +147,14 @@
   "ftype": "simple_capacitor",
   "source_component_id": "source_component_1",
   "name": "C1",
-  "manufacturer_part_number": "consectetur",
+  "manufacturer_part_number": "irure elit sit anim",
   "supplier_part_numbers": {
-    "cillum_b": [
-      "quis",
-      "adipisicing enim Ut esse dolor",
-      "voluptate qui",
-      "ut ea"
-    ],
-    "ullamcod01": ["sunt", "officia"]
+    "aliquaf": [
+      "enim et mollit",
+      "consectetur dolor",
+      "Lorem anim deserunt",
+      "enim nulla ipsum"
+    ]
   },
   "capacitance": "1uF"
 }
@@ -195,20 +178,13 @@
   "ftype": "simple_chip",
   "source_component_id": "source_component_1",
   "name": "C1",
-  "manufacturer_part_number": "incididunt cupidatat fugiat deserunt",
+  "manufacturer_part_number": "exercitation in Lorem",
   "supplier_part_numbers": {
-    "irure1_b": [
-      "tempor in cupidatat irure",
-      "reprehenderit mollit",
-      "id sit",
-      "do ullamco in adipisicing"
-    ],
-    "dolor99d": [
-      "ex nulla commodo sed anim",
-      "sint",
-      "ad ea adipisicing exercitation",
-      "Excepteur",
-      "ad"
+    "incididunteb": [
+      "officia eu veniam",
+      "eu deserunt dolore",
+      "sunt deserunt quis cupidatat labore",
+      "esse tempor non dolore"
     ]
   }
 }
@@ -231,12 +207,13 @@
   "ftype": "simple_diode",
   "source_component_id": "source_component_1",
   "name": "D1",
-  "manufacturer_part_number": "minim enim",
+  "manufacturer_part_number": "ut",
   "supplier_part_numbers": {
-    "laboris__": [
-      "ad fugiat sed incididunt sunt",
-      "proident ut in incididunt velit",
-      "pariatur mollit"
+    "proident_14c": [
+      "irure ullamco sed laboris dolore",
+      "sunt dolor",
+      "ullamco nostrud enim aliqua cillum",
+      "nulla magna Duis et"
     ]
   }
 }
@@ -258,10 +235,7 @@
   "type": "source_component",
   "ftype": "simple_ground",
   "source_component_id": "source_component_1",
-  "name": "G1",
-  "supplier_part_numbers": {
-    "labore_e7": ["minim aliquip commodo ipsum"]
-  }
+  "name": "G1"
 }
 ```
 
@@ -282,9 +256,9 @@
   "ftype": "simple_power_source",
   "source_component_id": "source_component_1",
   "name": "P1",
-  "manufacturer_part_number": "velit nisi ad minim laborum",
+  "manufacturer_part_number": "commodo culpa",
   "supplier_part_numbers": {
-    "eafb": ["adipisicing", "elit minim"]
+    "sit_441": ["Duis dolor", "in", "velit adipisicing", "esse", "in est ad"]
   },
   "voltage": "5V"
 }
@@ -308,13 +282,14 @@
   "ftype": "simple_resistor",
   "source_component_id": "source_component_1",
   "name": "R1",
-  "manufacturer_part_number": "adipisicing",
+  "manufacturer_part_number": "in laboris deserunt ut quis",
   "supplier_part_numbers": {
-    "nulla079": [
-      "tempor Duis deserunt eiusmod occaecat",
-      "cillum",
-      "esse",
-      "minim"
+    "mollit_9a1": [
+      "do et occaecat sint est",
+      "amet occaecat",
+      "eiusmod labore",
+      "anim nisi occaecat quis",
+      "veniam consequat minim Duis id"
     ]
   },
   "resistance": "1k"
@@ -338,14 +313,18 @@
   "type": "source_trace",
   "source_trace_id": "source_trace_1",
   "connected_source_port_ids": [
-    "qui tempor cupidatat dolor",
-    "ut",
-    "reprehenderit cillum enim amet"
+    "aute dolor sed ullamco",
+    "do deserunt dolore",
+    "consectetur ex",
+    "eiusmod est aliqua officia enim",
+    "laborum dolor aliquip"
   ],
   "connected_source_net_ids": [
-    "cillum mollit fugiat in",
-    "qui",
-    "anim proident"
+    "in",
+    "magna quis minim aute",
+    "occaecat",
+    "nostrud amet ut ipsum",
+    "fugiat consequat"
   ]
 }
 ```
@@ -388,6 +367,7 @@ Draws a box on the schematic
 ```json
 {
   "type": "schematic_component",
+  "rotation": "90deg",
   "size": {
     "width": "5mm",
     "height": "5mm"
@@ -398,8 +378,8 @@ Draws a box on the schematic
   },
   "source_component_id": "source_component_1",
   "schematic_component_id": "schematic_component_1",
-  "pin_spacing": 46351879.21059632,
-  "box_width": 54864109.94274858,
+  "pin_spacing": -88279108.23787838,
+  "box_width": -80573640.99717818,
   "port_arrangement": {
     "left_size": 3,
     "right_size": 3
@@ -434,7 +414,7 @@ Defines a schematic error on the schematic
   "schematic_error_id": "schematic_error_1",
   "type": "schematic_error",
   "error_type": "schematic_port_not_found",
-  "message": "ut eiusmod proident ut veniam"
+  "message": "aliqua quis"
 }
 ```
 
@@ -477,7 +457,7 @@ Defines a schematic error on the schematic
     "x": "3mm",
     "y": "1mm"
   },
-  "anchor_side": "bottom",
+  "anchor_side": "right",
   "text": "Hello, World!"
 }
 ```
@@ -496,9 +476,12 @@ Defines a schematic error on the schematic
 {
   "type": "schematic_path",
   "schematic_component_id": "schematic_component_1",
-  "fill_color": "red",
-  "is_filled": true,
+  "is_filled": false,
   "points": [
+    {
+      "x": "3mm",
+      "y": "1mm"
+    },
     {
       "x": "3mm",
       "y": "1mm"
@@ -528,8 +511,7 @@ Defines a port on a schematic component
   "center": {
     "x": "3mm",
     "y": "1mm"
-  },
-  "facing_direction": "up"
+  }
 }
 ```
 
@@ -555,7 +537,7 @@ Defines a port on a schematic component
     "y": "1mm"
   },
   "rotation": "90deg",
-  "anchor": "top"
+  "anchor": "center"
 }
 ```
 
@@ -610,6 +592,7 @@ Defines a port on a schematic component
         "x": "3mm",
         "y": "1mm"
       },
+      "from_schematic_port_id": "from_schematic_port_1",
       "to_schematic_port_id": "to_schematic_port_1"
     },
     {
@@ -621,6 +604,7 @@ Defines a port on a schematic component
         "x": "3mm",
         "y": "1mm"
       },
+      "from_schematic_port_id": "from_schematic_port_1",
       "to_schematic_port_id": "to_schematic_port_1"
     },
     {
@@ -632,7 +616,8 @@ Defines a port on a schematic component
         "x": "3mm",
         "y": "1mm"
       },
-      "from_schematic_port_id": "from_schematic_port_1"
+      "from_schematic_port_id": "from_schematic_port_1",
+      "to_schematic_port_id": "to_schematic_port_1"
     }
   ]
 }
@@ -723,14 +708,6 @@ Defines a fabrication path on the PCB for fabricators or assemblers
     {
       "x": "3mm",
       "y": "1mm"
-    },
-    {
-      "x": "3mm",
-      "y": "1mm"
-    },
-    {
-      "x": "3mm",
-      "y": "1mm"
     }
   ],
   "stroke_width": "0.1mm"
@@ -753,13 +730,16 @@ Defines a fabrication note in text on the PCB, useful for leaving notes for asse
 ```json
 {
   "type": "pcb_fabrication_note_text",
+  "font": "tscircuit2024",
+  "font_size": "1mm",
   "pcb_component_id": "pcb_component_1",
   "text": "Hello, World!",
   "layer": "top",
   "anchor_position": {
     "x": "3mm",
     "y": "1mm"
-  }
+  },
+  "anchor_alignment": "bottom_right"
 }
 ```
 
@@ -783,7 +763,7 @@ Defines a placement error on the PCB
   "pcb_error_id": "pcb_error_1",
   "type": "pcb_error",
   "error_type": "pcb_placement_error",
-  "message": "ullamco id sit tempor et"
+  "message": "labore dolor dolore ut adipisicing"
 }
 ```
 
@@ -829,7 +809,7 @@ Defines a trace error on the PCB
   "pcb_error_id": "pcb_error_1",
   "type": "pcb_error",
   "error_type": "pcb_port_not_matched_error",
-  "message": "fugiat cupidatat laboris culpa voluptate",
+  "message": "culpa aliqua sunt",
   "pcb_component_ids": ["pcb_component_1"]
 }
 ```
@@ -912,8 +892,8 @@ Defines a silkscreen oval on the PCB
     "x": "3mm",
     "y": "1mm"
   },
-  "radius_x": "exercitation adipisicing",
-  "radius_y": -33540528.370363235,
+  "radius_x": 90552569.50181308,
+  "radius_y": "nisi pariatur",
   "layer": "top"
 }
 ```
@@ -939,6 +919,10 @@ Defines a silkscreen path on the PCB
   "pcb_component_id": "pcb_component_1",
   "layer": "top",
   "route": [
+    {
+      "x": "3mm",
+      "y": "1mm"
+    },
     {
       "x": "3mm",
       "y": "1mm"
@@ -1005,10 +989,16 @@ Defines silkscreen text on the PCB
 ```json
 {
   "type": "pcb_silkscreen_text",
+  "font": "tscircuit2024",
+  "font_size": "1mm",
   "pcb_component_id": "pcb_component_1",
   "text": "Hello, World!",
   "layer": "top",
-  "anchor_alignment": "center"
+  "anchor_position": {
+    "x": "3mm",
+    "y": "1mm"
+  },
+  "anchor_alignment": "top_left"
 }
 ```
 
@@ -1061,29 +1051,11 @@ Defines text on the PCB
   "pcb_trace_id": "pcb_trace_1",
   "route": [
     {
-      "route_type": "wire",
-      "x": "3mm",
-      "y": "1mm",
-      "width": "5mm",
-      "start_pcb_port_id": "start_pcb_port_1",
-      "end_pcb_port_id": "end_pcb_port_1",
-      "layer": "top"
-    },
-    {
       "route_type": "via",
       "x": "3mm",
       "y": "1mm",
       "from_layer": "top",
       "to_layer": "bottom"
-    },
-    {
-      "route_type": "wire",
-      "x": "3mm",
-      "y": "1mm",
-      "width": "5mm",
-      "start_pcb_port_id": "start_pcb_port_1",
-      "end_pcb_port_id": "end_pcb_port_1",
-      "layer": "top"
     },
     {
       "route_type": "wire",
@@ -1122,7 +1094,7 @@ Defines a trace error on the PCB
   "pcb_error_id": "pcb_error_1",
   "type": "pcb_error",
   "error_type": "pcb_trace_error",
-  "message": "sed Excepteur esse consectetur Duis",
+  "message": "ad enim dolore",
   "center": {
     "x": "3mm",
     "y": "1mm"
@@ -1157,6 +1129,17 @@ A hint that can be used to generate a PCB trace
   "pcb_port_id": "pcb_port_1",
   "pcb_component_id": "pcb_component_1",
   "route": [
+    {
+      "x": "3mm",
+      "y": "1mm",
+      "to_layer": "bottom"
+    },
+    {
+      "x": "3mm",
+      "y": "1mm",
+      "via": false,
+      "to_layer": "bottom"
+    },
     {
       "x": "3mm",
       "y": "1mm",
@@ -1210,27 +1193,14 @@ Defines a via on the PCB
 ```json
 {
   "type": "source_component",
-  "ftype": "simple_resistor",
+  "ftype": "simple_power_source",
   "source_component_id": "source_component_1",
-  "name": "R1",
-  "manufacturer_part_number": "nulla sunt",
+  "name": "P1",
+  "manufacturer_part_number": "sit Excepteur anim nulla culpa",
   "supplier_part_numbers": {
-    "adipisicing3": [
-      "Lorem sed",
-      "quis mollit Excepteur",
-      "nulla",
-      "elit anim sit"
-    ],
-    "consecteturd_": [
-      "ipsum Ut occaecat irure",
-      "nostrud ea",
-      "fugiat minim",
-      "dolor in nisi do ex",
-      "nisi eiusmod reprehenderit qui"
-    ],
-    "elit8": ["nisi"]
+    "nisie_7": ["nisi sit quis commodo fugiat", "officia labore nulla dolor"]
   },
-  "resistance": "1k"
+  "voltage": "5V"
 }
 ```
 
@@ -1247,19 +1217,17 @@ Defines a component on the PCB
   "position": {
     "x": "3mm",
     "y": "1mm",
-    "z": 81494565.21756414
+    "z": "mollit Duis est qui elit"
   },
   "rotation": "90deg",
   "size": {
     "x": "3mm",
     "y": "1mm",
-    "z": "ad id ullamco in pariatur"
+    "z": "dolor"
   },
   "layer": "top",
-  "footprinter_string": "ullamco eu",
-  "model_obj_url": "velit",
-  "model_stl_url": "culpa veniam",
-  "model_3mf_url": "dolor irure",
+  "footprinter_string": "Duis deserunt magna",
+  "model_3mf_url": "consequat nisi",
   "model_jscad": {}
 }
 ```
@@ -1313,7 +1281,7 @@ Defines a component on the PCB
 ### `layer_string`
 
 ```json
-"inner4"
+"inner3"
 ```
 
 ### `length`
@@ -1329,9 +1297,7 @@ Defines a hole on the PCB
 ```json
 {
   "type": "pcb_hole",
-  "hole_shape": "round",
-  "hole_width": "1mm",
-  "hole_height": "1mm",
+  "hole_diameter": "0.08in",
   "x": "3mm",
   "y": "1mm"
 }
@@ -1344,14 +1310,16 @@ Defines a plated hole on the PCB
 ```json
 {
   "type": "pcb_plated_hole",
-  "shape": "oval",
-  "outer_width": -85721798.26831064,
-  "outer_height": -11497106.48247759,
+  "shape": "pill",
+  "outer_width": -22715933.027753904,
+  "outer_height": -65934143.49752171,
   "hole_width": "1mm",
   "hole_height": "1mm",
   "x": "3mm",
   "y": "1mm",
   "layers": ["top", "bottom"],
+  "port_hints": ["1", "left"],
+  "pcb_component_id": "pcb_component_1",
   "pcb_port_id": "pcb_port_1"
 }
 ```
@@ -1361,7 +1329,8 @@ Defines a plated hole on the PCB
 ```json
 {
   "x": "3mm",
-  "y": "1mm"
+  "y": "1mm",
+  "via_to_layer": "inner4"
 }
 ```
 
@@ -1398,8 +1367,6 @@ Defines an SMT pad on the PCB
   "width": "5mm",
   "height": "5mm",
   "layer": "top",
-  "port_hints": ["1", "left"],
-  "pcb_component_id": "pcb_component_1",
   "pcb_port_id": "pcb_port_1"
 }
 ```
@@ -1424,7 +1391,7 @@ Defines an SMT pad on the PCB
 {
   "x": "3mm",
   "y": "1mm",
-  "z": "Duis"
+  "z": -34317242.23779016
 }
 ```
 
@@ -1454,7 +1421,7 @@ Defines an SMT pad on the PCB
 {
   "x": "3mm",
   "y": "1mm",
-  "z": -64355800.180327184
+  "z": "minim ex"
 }
 ```
 
@@ -1482,7 +1449,7 @@ Defines an SMT pad on the PCB
 {
   "x": "3mm",
   "y": "1mm",
-  "via": true,
+  "via": false,
   "to_layer": "bottom"
 }
 ```
@@ -1511,7 +1478,7 @@ Defines an SMT pad on the PCB
 ### `supplier_name`
 
 ```json
-"macrofab"
+"digikey"
 ```
 
 ### `time`
@@ -1523,7 +1490,7 @@ Defines an SMT pad on the PCB
 ### `visible_layer`
 
 ```json
-"top"
+"bottom"
 ```
 
 ### `voltage`
