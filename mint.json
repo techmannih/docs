@@ -51,16 +51,14 @@
   "navigation": [
     {
       "group": "Get Started",
-      "pages": [
-        "quickstart",
-        "registry"
-      ]
+      "pages": ["quickstart", "registry"]
     },
     {
       "group": "Tutorials",
       "pages": [
         "tutorials/blinking-led-circuit",
-        "tutorials/copying-a-reference-circuit"
+        "tutorials/copying-a-reference-circuit",
+        "tutorials/parts-of-a-pcb"
       ]
     },
     {
@@ -103,9 +101,7 @@
     },
     {
       "group": "Advanced",
-      "pages": [
-        "api-reference/advanced/soup"
-      ]
+      "pages": ["api-reference/advanced/soup"]
     }
   ],
   "footerSocials": {
