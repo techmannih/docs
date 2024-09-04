@@ -48,6 +48,28 @@ the top layer can pass to the bottom.
 <img src="/images/via.png" />
 </Frame>
 
+
+<CodeGroup>
+```tsx via.tsx
+<via x={0} y={0} toLayer="bottom" fromLayer="top" outerDiameter="0.35mm" />
+```
+
+```json via.circuit.json
+{
+  "type": "pcb_via",
+  "position": {
+    "x": 0,
+    "y": 0
+  },
+  "hole_diameter": "0.25mm",
+  "outer_diameter": "0.35mm",
+  "from_layer": "top",
+  "to_layer": "bottom",
+  "layers": ["top", "bottom"]
+}
+```
+</CodeGroup>
+
 ## Plated Holes
 
 A plated hole is similar to a via but it's hollow so that you can push metal pins
@@ -56,11 +78,57 @@ holes. Chips with big pins that must go through holes are called "through-hole"
 chips, and chips with small
 pins are called "surface-mount" chips.
 
+<CodeGroup>
+```tsx plated-hole.tsx
+<platedhole 
+  shape="circle"
+  x="5mm"
+  y="2.4mm"
+  holeDiameter="0.25mm"
+  outerDiameter="0.35mm"
+/>
+```
+
+```json plated-hole.circuit.json
+{
+  "type": "pcb_plated_hole",
+  "shape": "circle",
+  "outer_diameter": "1.2mm",
+  "hole_diameter": "0.08in",
+  "x": "3mm",
+  "y": "1mm",
+  "layers": ["top", "bottom"],
+  "port_hints": ["1", "left"],
+  "pcb_component_id": "pcb_component_1",
+  "pcb_port_id": "pcb_port_1"
+}
+```
+</CodeGroup>
+
 ## Unplated Holes "Regular Holes"
 
 Unplated holes or "regular holes" are just holes in the printed circuit board
 without any copper around them. They don't electrically connect anything, but
 can be very helpful for mounting the printed circuit board.
+
+<CodeGroup>
+```tsx unplated-hole.tsx
+<hole
+  x="5mm"
+  y="2.4mm"
+  holeDiameter="0.25mm"
+/>
+```
+
+```json unplated-hole.circuit.json
+{
+  "type": "pcb_hole",
+  "x": "5mm",
+  "y": "2.4mm",
+  "hole_diameter": "0.25mm"
+}
+```
+</CodeGroup>
 
 ## What are inner layers?
 
