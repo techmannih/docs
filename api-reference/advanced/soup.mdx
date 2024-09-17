@@ -1,15 +1,15 @@
 ---
-title: 'Soup Specification'
+title: 'Circuit JSON Specification'
 ---
 
 ## Overview
 
-"tscircuit soup" is the name of the built low-level JSON circuit representation. It contains
+Circuit JSON (AKA tscircuit soup) is the name of the built low-level JSON circuit representation. It contains
 all the information needed to visually represent a schematic, PCB, produce Gerber files, produce
 bill of materials, run SPICE simulations, view warnings and more. It is designed to easily
 interoperate with a SQL database.
 
-tscircuit soup is an array of objects, a tscircuit soup object looks like this:
+Circuit JSON is an array of objects, a tscircuit soup object looks like this:
 
 ```json
 {
