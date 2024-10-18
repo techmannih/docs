@@ -38,8 +38,8 @@
       "url": "https://github.com/tscircuit/tscircuit"
     },
     {
-      "name": "Twitter",
-      "icon": "twitter",
+      "name": "Twitter/X",
+      "icon": "x",
       "url": "https://twitter.com/tscircuit"
     },
     {
@@ -105,7 +105,7 @@
     }
   ],
   "footerSocials": {
-    "twitter": "https://twitter.com/tscircuit",
+    "x": "https://twitter.com/tscircuit",
     "github": "https://github.com/tscircuit/tscircuit",
     "linkedin": "https://www.linkedin.com/company/mintsearch"
   }
