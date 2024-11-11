@@ -57,6 +57,7 @@
       "group": "Tutorials",
       "pages": [
         "tutorials/blinking-led-circuit",
+        "tutorials/pushbutton-led-circuit",
         "tutorials/copying-a-reference-circuit",
         "tutorials/parts-of-a-pcb"
       ]
