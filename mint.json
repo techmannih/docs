@@ -60,7 +60,8 @@
         "tutorials/pushbutton-led-circuit",
         "tutorials/copying-a-reference-circuit",
         "tutorials/parts-of-a-pcb",
-        "tutorials/motor-driver-circuit"
+        "tutorials/motor-driver-circuit",
+        "tutorials/and-gate-circuit"
       ]
     },
     {
