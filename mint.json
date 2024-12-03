@@ -58,6 +58,7 @@
       "pages": [
         "tutorials/blinking-led-circuit",
         "tutorials/pushbutton-led-circuit",
+        "tutorials/or-gate-circuit",
         "tutorials/copying-a-reference-circuit",
         "tutorials/parts-of-a-pcb",
         "tutorials/motor-driver-circuit"
