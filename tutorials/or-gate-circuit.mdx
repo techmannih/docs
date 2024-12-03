@@ -165,18 +165,6 @@ export default () => {
 }
 ```
 
-## Understanding the Circuit
-
-### OR Gate Logic
-- When either B1 or B2 is pressed, the output LED (LED3) will light up
-- This demonstrates the fundamental behavior of an OR gate
-
-### Power and Ground
-- USB-C provides power (VBUS) and ground connections
-- Each button and LED has a current-limiting resistor
-
-## Circuit Views
-
 ### Custom Board Shape
 
 In this circuit, we've used the `outline` prop to create a custom hexagonal board shape. 
@@ -221,6 +209,30 @@ Here's the exact code used to create the custom hexagonal board shape:
 Each point in the `outline` array represents a vertex of the board's perimeter. 
 The coordinates define a hexagon-like shape that's wider at the bottom and 
 tapers towards the top.
+
+
+## Interactive Circuit Exploration
+
+Want to dive deeper? We've prepared an interactive live example that allows you to explore the OR gate circuit in real-time. This interactive snippet provides:
+
+- Full circuit schematic
+- PCB layout view
+- Component interactions
+
+[**Explore the Interactive OR Gate Circuit →**](https://tscircuit.com/Abse2001/OR-Gate-Tutorial)
+
+## Understanding the Circuit
+
+### OR Gate Logic
+- When either B1 or B2 is pressed, the output LED (LED3) will light up
+- This demonstrates the fundamental behavior of an OR gate
+
+[**Check the OR-GATE data sheet for this example →**](https://www.lcsc.com/datasheet/lcsc_datasheet_1809151115_Texas-Instruments-SN74AHC1G32DBVR_C7470.pdf)
+### Power and Ground
+- USB-C provides power (VBUS) and ground connections
+- Each button and LED has a current-limiting resistor
+
+## Circuit Views
 
 ### Schematic View
 
