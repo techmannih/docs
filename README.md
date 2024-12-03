@@ -1,6 +1,6 @@
 # tscircuit docs
 
-[tscircuit](https://tscircuit.com) &middot; [live docs](https://docs.tscircuit.com)
+[tscircuit](https://tscircuit.com) &middot; [live docs](https://docs.tscircuit.com) &middot; [discord](https://tscircuit.com/join)
 
 ## Development
 
