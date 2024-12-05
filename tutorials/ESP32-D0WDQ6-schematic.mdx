@@ -1,40 +1,32 @@
 ---
-title: 'ESP32 Development Circuit'
-description: 'Create a development board using the ESP32 microcontroller with essential supporting components'
+title: 'ESP32-D0WD Development Circuit'
+description: 'Create a development board using the ESP32-D0WD microcontroller with essential supporting components'
 icon: 'code'
 ---
 
 ## Overview
 
-In this tutorial, we'll create a development circuit based on the ESP32 microcontroller. This circuit includes all essential components needed for the ESP32 to function properly, including decoupling capacitors, crystal oscillator, flash memory, and antenna components.
+In this tutorial, we'll create a development circuit based on the ESP32-D0WD microcontroller. This circuit includes all essential components needed for proper operation, including decoupling capacitors, crystal oscillator, flash memory, and antenna components.
 
 ## Components Overview
 
 The main components in this circuit are:
-- ESP32 microcontroller
-- Crystal oscillator (U1)
-- Flash memory (U3)
-- PSRAM memory (U4)
+- ESP32-D0WD microcontroller (U2)
+- ATS400B 40MHz Crystal oscillator (U1)
+- W25Q32JVSSIQ Flash memory (U3)
+- LY68L6400SLIT PSRAM memory (U4)
+- ANT-2.4-CW-RCL 2.4GHz Antenna (ANT1)
 - Various capacitors and resistors for proper operation
-- RF components including antenna (ANT1)
 
 ## Creating the Circuit
 
-First, let's import our required components:
+First, let's create our ESP32 module component:
 
 ```tsx
-import { ESP32Module } from "../components/ESP32Module"
-```
-
-## Basic Circuit Structure
-
-The ESP32 module is implemented as a reusable component that includes all the necessary supporting circuitry. Let's examine how to use it:
-
-```tsx
-import { useESP32 } from "@tsci/AnasSarkiz.ESP32"
+import { useESP32_D0WD } from "@tsci/AnasSarkiz.ESP32_D0WD"
 import { useResistor, useCapacitor } from "@tscircuit/core"
 
-export const Circuit = () => {
+export const ESP32Module = (props: { name: string }) => {
   const ESP32 = useESP32("U2")
 
   // Capacitors
@@ -431,7 +423,7 @@ The ESP32 provides numerous GPIO pins that can be used for various purposes:
 Click "Run" to see your circuit. You can switch between different views:
 
 <Frame caption="Schematic view showing the ESP32 and supporting components">
-![ESP32 Schematic](/images/esp32-circuit/schematic.png)
+![ESP32 Schematic](/images/ESP32-D0WDQ6/schematic.png)
 </Frame>
 
 
