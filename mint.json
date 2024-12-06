@@ -62,7 +62,8 @@
         "tutorials/copying-a-reference-circuit",
         "tutorials/parts-of-a-pcb",
         "tutorials/motor-driver-circuit",
-        "tutorials/and-gate-circuit"
+        "tutorials/and-gate-circuit",
+        "tutorials/ESP32-D0WDQ6-schematic"
       ]
     },
     {
