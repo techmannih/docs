@@ -2,4 +2,15 @@
 title: '<powersource />'
 ---
 
-A common powersource.
+A powersource component to define voltage and customize layout.
+
+## Example Usage
+
+```tsx ExamplePowerSourceUsage.tsx
+export const ExamplePowerSourceUsage = () => (
+  <powersource
+    name="VCC"
+    voltage="5V"
+    footprint="dip"
+  />
+)

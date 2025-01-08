@@ -72,6 +72,8 @@
         "api-reference/components/bug",
         "api-reference/components/resistor",
         "api-reference/components/capacitor",
+        "api-reference/components/inductor",
+        "api-reference/components/transistor",
         "api-reference/components/trace",
         "api-reference/components/component",
         "api-reference/components/diode",
