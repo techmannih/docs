@@ -1,0 +1,22 @@
+
+```mdx
+---
+title: 'Chip'
+---
+
+A Chip component to define a semiconductor chip with configuration options.
+
+## Example Usage
+
+```tsx
+export const ExampleChipUsage = () => (
+   <chip
+        name="U1"
+        pcbX={4}
+        footprint="soic8"
+        cadModel={{
+          stlUrl: "https://example.com/chip.stl",
+        }}
+      />
+)
+```
