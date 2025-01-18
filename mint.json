@@ -51,7 +51,10 @@
   "navigation": [
     {
       "group": "Get Started",
-      "pages": ["quickstart", "registry"]
+      "pages": [
+        "quickstart",
+        "registry"
+      ]
     },
     {
       "group": "Tutorials",
@@ -69,18 +72,28 @@
     {
       "group": "Core Components",
       "pages": [
+        "api-reference/components/battery",
+        "api-reference/components/board",
         "api-reference/components/bug",
-        "api-reference/components/resistor",
         "api-reference/components/capacitor",
-        "api-reference/components/inductor",
-        "api-reference/components/transistor",
-        "api-reference/components/trace",
+        "api-reference/components/chip",
         "api-reference/components/component",
+        "api-reference/components/crystal",
         "api-reference/components/diode",
+        "api-reference/components/group",
+        "api-reference/components/inductor",
+        "api-reference/components/jumper",
         "api-reference/components/led",
+        "api-reference/components/mosfet",
         "api-reference/components/netalias",
+        "api-reference/components/pinheader",
+        "api-reference/components/potentiometer",
         "api-reference/components/powersource",
-        "api-reference/components/group"
+        "api-reference/components/pushbutton",
+        "api-reference/components/resistor",
+        "api-reference/components/resonator",
+        "api-reference/components/trace",
+        "api-reference/components/transistor"
       ]
     },
     {
@@ -108,7 +121,9 @@
     },
     {
       "group": "Advanced",
-      "pages": ["api-reference/advanced/soup"]
+      "pages": [
+        "api-reference/advanced/soup"
+      ]
     }
   ],
   "footerSocials": {
