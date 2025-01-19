@@ -44,17 +44,16 @@ The copper on the top needs some way to "pass through" to the bottom layer.
 This is where vias come in. A via is a hole that is "filled with copper" so that
 the top layer can pass to the bottom.
 
-<Frame caption="Vias connect different layers of a PCB">
-<img src="/images/via.png" />
-</Frame>
+<figure>
+<img src="/img/via.png" alt="Vias" /> 
+<figcaption>Vias connect different layers of a PCB</figcaption> 
+</figure>
 
-
-<CodeGroup>
-```tsx via.tsx
+```tsx title="via.tsx"
 <via x={0} y={0} toLayer="bottom" fromLayer="top" outerDiameter="0.35mm" />
 ```
 
-```json via.circuit.json
+```json titile="via.circuit.json"
 {
   "type": "pcb_via",
   "position": {
@@ -68,7 +67,6 @@ the top layer can pass to the bottom.
   "layers": ["top", "bottom"]
 }
 ```
-</CodeGroup>
 
 ## Plated Holes
 
@@ -78,8 +76,7 @@ holes. Chips with big pins that must go through holes are called "through-hole"
 chips, and chips with small
 pins are called "surface-mount" chips.
 
-<CodeGroup>
-```tsx plated-hole.tsx
+```tsx title="plated-hole.tsx"
 <platedhole 
   shape="circle"
   x="5mm"
@@ -89,7 +86,7 @@ pins are called "surface-mount" chips.
 />
 ```
 
-```json plated-hole.circuit.json
+```json title="plated-hole.circuit.json"
 {
   "type": "pcb_plated_hole",
   "shape": "circle",
@@ -103,7 +100,6 @@ pins are called "surface-mount" chips.
   "pcb_port_id": "pcb_port_1"
 }
 ```
-</CodeGroup>
 
 ## Unplated Holes "Regular Holes"
 
@@ -111,8 +107,7 @@ Unplated holes or "regular holes" are just holes in the printed circuit board
 without any copper around them. They don't electrically connect anything, but
 can be very helpful for mounting the printed circuit board.
 
-<CodeGroup>
-```tsx unplated-hole.tsx
+```tsx title="unplated-hole.tsx"
 <hole
   x="5mm"
   y="2.4mm"
@@ -120,7 +115,7 @@ can be very helpful for mounting the printed circuit board.
 />
 ```
 
-```json unplated-hole.circuit.json
+```json titile="unplated-hole.circuit.json"
 {
   "type": "pcb_hole",
   "x": "5mm",
@@ -128,7 +123,6 @@ can be very helpful for mounting the printed circuit board.
   "hole_diameter": "0.25mm"
 }
 ```
-</CodeGroup>
 
 ## What are inner layers?
 
@@ -136,10 +130,7 @@ Inner layers are layers of PCB that aren't visible, they're sandwiched on the
 inside. Sometimes this is useful when you have a lot of wires to connect and
 it's almost impossible to stop them from crossing each other.
 
-<Frame caption={
-  <div>
-  Inner layers are layers of PCB that aren't visible, they're sandwiched on the inside. Excellent image from <a href="https://www.pcbway.com/blog/Engineering_Technical/3_STEPS_How_to_determine_calculate_number_of_PCB_layers.html">pcbway</a>
-  </div>
-}>
-<img src="/images/pcb-layers.png" />
-</Frame>
+<figure>
+<img src="/img/pcb-layers.png" alt="Inner layers" /> 
+<figcaption>Inner layers are layers of PCB that aren't visible, they're sandwiched on the inside. Excellent image from <a href="https://www.pcbway.com/blog/Engineering_Technical/3_STEPS_How_to_determine_calculate_number_of_PCB_layers.html">pcbway</a></figcaption> 
+</figure>
