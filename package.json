@@ -1,6 +1,5 @@
 {
   "name": "@tscircuit/docs",
-  "private": true,
   "devDependencies": {
     "@docusaurus/module-type-aliases": "3.7.0",
     "@docusaurus/tsconfig": "3.7.0",
