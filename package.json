@@ -1,6 +1,7 @@
 {
   "name": "@tscircuit/docs",
   "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
     "@docusaurus/module-type-aliases": "3.7.0",
     "@docusaurus/tsconfig": "3.7.0",
     "@docusaurus/types": "3.7.0",
