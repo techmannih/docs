@@ -1,13 +1,14 @@
 ---
 title: "Quickstart"
 description: "Create your first React Circuit in less than 5 minutes"
+slug: /quickstart
 ---
 
-<Info>
+:::info
   We recommend experimenting with tscircuit from [tscircuit.com](https://tscircuit.com), just go to the top and hit "New", no sign up required!
 
   Our CLI is a bit out of date- but we're working on it!
-</Info>
+:::
 
 ## Install tscircuit
 
@@ -69,8 +70,7 @@ shown in the preview window.
 In the `lib` directory, the `MyCircuit.tsx` file defines a boilerplate circuit.
 You can rename and modify this file to test out different circuits.
 
-<CodeGroup>
-  ```tsx MyCircuit.tsx
+```tsx title="MyCircuit.tsx"
   export const MyCircuit = () => (
     <resistor
       resistance="10kohm"
@@ -78,16 +78,15 @@ You can rename and modify this file to test out different circuits.
       footprint="0805"
     />
   )
-  ```
+```
 
-  ```tsx MyExample.tsx
+```tsx title="MyExample.tsx"
   import { MyCircuit } from "lib/MyCircuit"
 
   export const MyExample = () => (
     <MyCircuit />
   )
-  ```
-</CodeGroup>
+```
 
 ## Developing with Realtime Preview
 
@@ -95,7 +94,7 @@ To start the development server, run `tsci dev` in your terminal. This will open
 a new browser window at [`localhost:3020`](http://localhost:3020) with a Schematic and PCB preview of a circuit in your
 `examples` directory.
 
-![Initial Preview Window](/images/preview-window-initial.png)
+![Initial Preview Window](/img/preview-window-initial.png)
 
 {/* <AccordionGroup>
 
@@ -126,12 +125,16 @@ so there's nothing to configure!
 
 Now that you know the basics, you can get started building circuits!
 
-<CardGroup>
-  <Card title="Tutorial: Blinking LED Circuit" icon="square-code" href="/tutorials/blinking-led-circuit">
-    Learn to install packages, build and schematic and auto-route a PCB, and publish circuits.
-  </Card>
+<div className="cardContainer">
+  <div className="docsCard">
+    <h3>Tutorial: Blinking LED Circuit</h3>
+    <p>Learn to install packages, build and schematic and auto-route a PCB, and publish circuits.</p>
+    <a href="/tutorials/blinking-led-circuit">Read more</a>
+  </div>
 
-  <Card title="Playground" icon="code" href="https://tscircuit.com/playground">
-    Use tscircuit in your browser
-  </Card>
-</CardGroup>
+  <div className="docsCard">
+    <h3>Playground</h3>
+    <p>Use tscircuit in your browser</p>
+    <a href="https://tscircuit.com/playground">Try it out</a>
+  </div>
+</div>

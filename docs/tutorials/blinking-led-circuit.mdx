@@ -11,21 +11,22 @@ In this tutorial, we'll build a simple blinking LED circuit using a
 circuit, then finish by exporting for manufacturing and publishing
 our circuit for others to inspect on the tscircuit registry.
 
-<Note>
+:::info
   Want to skip to the source code? [Check out the github repository](https://github.com/tscircuit/blinking-led-circuit)
-</Note>
+:::
 
-<Frame caption="Build a Blinking LED Circuit with React!">
+<figure>
 <iframe
-  width="560"
-  height="315"
+  width="650"
+  height="350"
   src="https://www.youtube.com/embed/9m-bfswEv2k"
   title="YouTube video player"
   frameborder="0"
   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
   allowfullscreen
 ></iframe>
-</Frame>
+<figcaption>Build a Blinking LED Circuit with React!</figcaption> 
+</figure>
 
 ## Initializing your Project
 
@@ -38,7 +39,7 @@ Rename `lib/MyCircuit.tsx` to `lib/BlinkingLedCircuit.tsx`.
 
 Make sure the example file correctly imports your circuit:
 
-```tsx examples/MyCircuit.tsx
+```tsx title="examples/MyCircuit.tsx"
 import { BlinkingLedCircuit } from "lib/BlinkingLedCircuit"
 
 export const MyExample = () => <BlinkingLedCircuit />
@@ -51,7 +52,7 @@ timer to your project.
 
 Let's modify our circuit to...
 
-```tsx lib/BlinkingLedCircuit.tsx
+```tsx title="lib/BlinkingLedCircuit.tsx"
 import { Battery } from "@tsci/tscircuit.battery"
 import { A555Timer } from "@tsci/tscircuit.a555timer"
 
@@ -65,13 +66,14 @@ export const BlinkingLedCircuit = () => (
 
 You should now see see our imported components appear in the schematic view!
 
-<Frame caption="Our circuit now has a battery and a 555 timer!">
-![](/images/blinking-led-circuit/2024-04-19-10-48-15.png)
-</Frame>
+<figure>
+<img src="/img/blinking-led-circuit/2024-04-19-10-48-15.png" alt="Circuit with battery and 555 timer" /> 
+<figcaption>Our circuit now has a battery and a 555 timer!</figcaption> 
+</figure>
 
 ## Add Passive Components
 
-```tsx lib/BlinkingLedCircuit.tsx
+```tsx title="lib/BlinkingLedCircuit.tsx"
 import { Battery } from "@tsci/tscircuit.battery"
 import { A555Timer } from "@tsci/tscircuit.a555timer"
 
@@ -88,13 +90,14 @@ export const BlinkingLedCircuit = () => (
 )
 ```
 
-<Frame caption="Passives added!">
-![](/images/blinking-led-circuit/2024-04-19-10-46-42.png)
-</Frame>
+<figure>
+<img src="/img/blinking-led-circuit/2024-04-19-10-46-42.png" alt="Passives added" /> 
+<figcaption>Passives added!</figcaption> 
+</figure>
 
 ## Add Traces
 
-```tsx lib/BlinkingLedCircuit.tsx
+```tsx title="lib/BlinkingLedCircuit.tsx"
 import { Battery } from "@tsci/tscircuit.battery"
 import { A555Timer } from "@tsci/tscircuit.a555timer"
 
@@ -121,9 +124,10 @@ export const BlinkingLedCircuit = () => (
 )
 ```
 
-<Frame caption="Our circuit now has traces!">
-![](/images/blinking-led-circuit/2024-04-19-10-44-00.png)
-</Frame>
+<figure>
+<img src="/img/blinking-led-circuit/2024-04-19-10-44-00.png" alt="Circuit with traces" /> 
+<figcaption>Our circuit now has traces!</figcaption> 
+</figure>
 
 
 ## Set the passive footprints
@@ -131,7 +135,7 @@ export const BlinkingLedCircuit = () => (
 The footprint or "landing pattern" is the physical copper pad that a component is soldered to on a PCB. We need to set the footprints for our passive components. For this circuit, we'll use the 0805 package for all of our passive components
 and the LED.
 
-```tsx lib/BlinkingLedCircuit.tsx
+```tsx title="lib/BlinkingLedCircuit.tsx"
 // ...
   <resistor
     name="R1"
@@ -169,9 +173,10 @@ and the LED.
 // ...
 ```
 
-<Frame caption="When you hover over the 0805 footprint, you can see they're all on top of each other!">
-![](/images/blinking-led-circuit/2024-04-19-11-06-39.png)
-</Frame>
+<figure>
+<img src="/img/blinking-led-circuit/2024-04-19-11-06-39.png" alt="Hover over 0805 footprint" /> 
+<figcaption>When you hover over the 0805 footprint, you can see they're all on top of each other!</figcaption> 
+</figure>
 
 ## Layout the PCB
 
@@ -180,7 +185,7 @@ it'll be possible to do this with auto-layout similar to web's flexbox or grid, 
 now we'll set the X and Y manually with `pcb_x` and `pcb_y`.
 
 
-```tsx lib/BlinkingLedCircuit.tsx
+```tsx title="lib/BlinkingLedCircuit.tsx"
 // ...
     <Battery
       center={[-5, 0]}
@@ -214,10 +219,10 @@ now we'll set the X and Y manually with `pcb_x` and `pcb_y`.
 // ...
     ```
 
-
-<Frame caption="Our footprints are now on the board, but some traces are overlapping!">
-![](/images/blinking-led-circuit/2024-04-19-11-30-37.png)
-</Frame>
+<figure>
+<img src="/img/blinking-led-circuit/2024-04-19-11-30-37.png" alt="Footprints on board" /> 
+<figcaption>Our footprints are now on the board, but some traces are overlapping!</figcaption> 
+</figure>
 
 ### Fixing Overlapping Traces
 
@@ -226,15 +231,15 @@ this prevents complex and sometimes "characteristic" traces from being routed. W
 can manually route the traces using `pcb_route_hints` to specify vias or more complex
 routes.
 
-<Note>
+:::note
   It's okay to have overlapping traces if they're within the same net, future
   versions of tscircuit will show an error and refuse to route overlapping
   traces!
-</Note>
+:::
 
-<Tip>
+:::tip
   You can double click inside the PCB Viewer to see the coordinate of your cursor!
-</Tip>
+:::
 
 ```tsx lib/BlinkingLedCircuit.tsx
 // ...
@@ -257,13 +262,15 @@ routes.
 // ...
 ```
 
-<Frame caption="Before adding pcb_route_hints">
-  ![](/images/blinking-led-circuit/2024-04-19-11-34-10.png)
-</Frame>
+<figure>
+<img src="/img/blinking-led-circuit/2024-04-19-11-34-10.png" alt="Before adding pcb_route_hints" /> 
+<figcaption>Before adding pcb_route_hints</figcaption> 
+</figure>
 
-<Frame caption="After adding pcb_route_hints, the trace now goes to the bottom layer!">
-  ![](/images/blinking-led-circuit/2024-04-19-11-37-53.png)
-</Frame>
+<figure>
+<img src="/img/blinking-led-circuit/2024-04-19-11-37-53.png" alt="After adding pcb_route_hints" /> 
+<figcaption>After adding pcb_route_hints, the trace now goes to the bottom layer!</figcaption> 
+</figure>
 
 
 ## Generate Gerber Files
@@ -271,15 +278,10 @@ routes.
 Gerbers are the de-facto format for getting a PCB printed. You can go to
 `File > Export > Gerbers` to get a zip file suitable for upload to [jlcpcb](https://jlcpcb.com), [pcbway](https://pcbway.com), [MacroFab](https://macrofab.com), or any other PCB manufacturer.
 
-<Frame caption="Export Gerbers from File > Export > Gerbers">
-<video
-  controls
-  className="w-full aspect-video"
-  src="/images/blinking-led-circuit/export-gerbers-2.mp4"
-></video>
-</Frame>
-
-
+<figure>
+<video controls className="w-full aspect-video" src="/img/blinking-led-circuit/export-gerbers-2.mp4"></video>
+<figcaption>Export Gerbers from File > Export > Gerbers</figcaption> 
+</figure>
 
 ## Add Supplier Part Numbers for Easy Ordering & Assembly
 
